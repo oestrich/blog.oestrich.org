@@ -3,6 +3,7 @@ layout: default
 title: Index
 ---
 
+<h3>Recent Posts</h3>
 <div class="posts">
 {% for post in site.posts limit:5 %}
   <article>
@@ -10,3 +11,7 @@ title: Index
   </article>
 {% endfor %}
 </div>
+
+<footer>
+  <h3><a href="/all.html">More posts</a></h3>
+</footer>
