@@ -1,5 +1,5 @@
 markdown: rdiscount
-permalink: /:year/:day/:title
+permalink: /:year/:month/:title
 exclude:
 - Gemfile
 - Gemfile.lock

@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: default
 categories:
 - rails
 - api
-title: Getting Rails respond_with to recognize custom mime types
+title: Getting Rails respond_with to recognize a custom media type
 ---
 
 # [{{ page.title }}]({{ page.url }})
