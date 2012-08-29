@@ -3,7 +3,6 @@ layout: default
 published: false
 categories:
 - blog
-- jekyll
 title: Jekyll Git Deployment With Bundler
 ---
 
