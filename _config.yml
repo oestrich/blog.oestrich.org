@@ -1,0 +1,5 @@
+markdown: rdiscount
+exclude:
+- Gemfile
+- Gemfile.lock
+- Guardfile
