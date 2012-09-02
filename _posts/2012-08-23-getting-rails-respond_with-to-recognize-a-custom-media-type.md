@@ -1,13 +1,10 @@
 ---
-layout: default
+layout: post
 categories:
 - rails
 - api
 title: Getting Rails respond_with to recognize a custom media type
 ---
-
-# [{{ page.title }}]({{ page.url }})
-<span>Posted on {{ page.date | date_to_string }}</span>
 
 I am writing a sample hypermedia API in Rails, [here](https://github.com/oestrich/hypermedia_rails), and recently came across some trouble trying to get Rails to recognize "application/hal+json" as a JSON format.
 

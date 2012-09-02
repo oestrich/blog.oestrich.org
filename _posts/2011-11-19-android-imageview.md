@@ -1,12 +1,9 @@
 ---
-layout: default
+layout: post
 categroies:
 - Android
 title: Android ImageView
 ---
-
-# [{{ page.title}}]({{ page.url }})
-<span>Posted on {{ page.date | date_to_string }}</span>
 
 Android's ImageView does a strange thing when you have it stretch to fit the width of the view but not the height. It creates a big square for the view instead of conforming to the image size.
 

@@ -1,13 +1,10 @@
 ---
-layout: default
+layout: post
 categories:
 - rails
 - ruby
 title: cURLin' for Docs
 ---
-
-# [{{ page.title}}]({{ page.url }})
-<span>Posted on {{ page.date | date_to_string }}</span>
 
 You may have docs for your API, but do you have an API for your docs? With RspecApiDocumentation and Raddocs, you can cURL for your documentation. Try out the following cURL command to see for yourself:
 

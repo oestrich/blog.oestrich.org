@@ -1,13 +1,10 @@
 ---
-layout: default
+layout: post
 categories:
 - Linux
 - Ruby
 title: RVM and Cron
 ---
-
-# [{{ page.title}}]({{ page.url }})
-<span>Posted on {{ page.date | date_to_string }}</span>
 
 Today I set up my first real rails production server and in the process ran across an issue with cron and rvm. I have a rake task that I want to run every 15 minutes. I made a script that cd'd into the directory, loaded the correct ruby and gemset then did the rake task.
 

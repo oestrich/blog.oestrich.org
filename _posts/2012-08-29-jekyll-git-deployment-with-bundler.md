@@ -1,12 +1,9 @@
 ---
-layout: default
+layout: post
 categories:
 - blog
 title: Jekyll Git Deployment With Bundler
 ---
-
-# [{{ page.title }}]({{ page.url }})
-<span>Posted on {{ page.date | date_to_string }}</span>
 
 I recently converted my blog over to Jekyll, mainly to not have MySQL running. One thing I did though was set up git deployment. I mostly followed the Jekyll guide, but I different when setting up the jekyll gem.
 

@@ -1,10 +1,7 @@
 ---
-layout: default
+layout: post
 title: My development blog
 ---
-
-# [{{ page.title}}]({{ page.url }})
-<span>Posted on {{ page.date | date_to_string }}</span>
 
 Welcome to my development blog. I am following Avdi Grimm's suggestion for a young developer, found [here](http://avdi.org/devblog/2011/08/19/letter-to-a-young-developer/), and creating a place online to reflect on the things I learn.
 

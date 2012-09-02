@@ -1,12 +1,9 @@
 ---
-layout: default
+layout: post
 categories:
 - Rails
 title: Devise Authentication Token
 ---
-
-# [{{ page.title}}]({{ page.url }})
-<span>Posted on {{ page.date | date_to_string }}</span>
 
 I started using the devise authentication token for a project recently and was confounded on how to get the token from the client's perspective. After fiddling with different ways, I finally found that adding :authentication_token to attr_accessible let's it slide through the post to sign_in.
 
