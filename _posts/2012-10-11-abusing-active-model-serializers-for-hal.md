@@ -10,7 +10,7 @@ title: Abusing ActiveModel::Serializers for HAL
 
 For my recent APIs I've used JSON HAL as the media type and ActiveModel::Serializers as an alternative to `#as_json`. It's worked out fairly well except I've had to bend backwards in order to get ActiveModel::Serializers to spit out HAL.
 
-Below are some common things I've had to use.
+Below are some common things I've had to use. You can check out an example [here](https://github.com/oestrich/hypermedia_rails).
 
 ### Disable Root
 This one is pretty easy, we just need to not have the element type be the root key.
