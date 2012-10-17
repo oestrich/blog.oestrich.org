@@ -1,0 +1,9 @@
+img.float-img {
+  float: right;
+  padding-bottom: 20px;
+  padding-left: 10px;
+}
+
+.clear {
+  clear: both;
+}
