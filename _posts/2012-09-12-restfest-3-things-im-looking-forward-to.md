@@ -7,7 +7,7 @@ title: REST Fest - 3 Things I'm Looking Forward To
 ---
 
 _This post was originally published on the_
-[SmartLogic Blog](http://blog.smartlogicsolutions.com/).
+[SmartLogic Blog](http://blog.smartlogicsolutions.com/2012/09/11/rest-fest-3-things-im-looking-forward-to/).
 
 <img style="float: right; margin-left: 10px;" title="Rest Fest 2012" src="/images/restfest.png" alt="Rest Fest 2012" width="200" height="200" />
 

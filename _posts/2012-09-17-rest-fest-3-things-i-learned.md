@@ -7,7 +7,7 @@ title: REST Fest - 3 Things I Learned
 ---
 
 _This post was originally published on the_
-[SmartLogic Blog](http://blog.smartlogicsolutions.com/).
+[SmartLogic Blog](http://blog.smartlogicsolutions.com/2012/09/17/rest-fest-3-things-i-learned/).
 
 This past weekend, I headed down to REST Fest in Greenville, South Carolina. My weekend lived up to [my expectations](http://blog.smartlogicsolutions.com/2012/09/11/rest-fest-3-things-im-looking-forward-to): though I didn't get much of a chance to work on [Frenetic](https://github.com/dlindahl/frenetic), I spread the word about [Raddocs and RAD](http://blog.smartlogicsolutions.com/2012/07/12/curlin-for-docs/), and learned a lot from the API developers at the event.
 

@@ -6,6 +6,9 @@ categories:
 title: cURLin' for Docs
 ---
 
+_This post was originally published on the_
+[SmartLogic Blog](http://blog.smartlogicsolutions.com/2012/07/12/curlin-for-docs/).
+
 You may have docs for your API, but do you have an API for your docs? With RspecApiDocumentation and Raddocs, you can cURL for your documentation. Try out the following cURL command to see for yourself:
 
     $ curl -H "Accept: text/docs+plain" http://rad-example.herokuapp.com/orders
@@ -129,8 +132,5 @@ For middleware
 ## Conclusion
 
 You now have docs that won't generate if your tests fail, making sure that they are correct. And you can view them in a console as well as the browser.
-
-_This post was originally published on the_
-[SmartLogic Blog](http://blog.smartlogicsolutions.com/).
 
 [Image Source](http://www.flickr.com/photos/rtclauss/7200798740/)
