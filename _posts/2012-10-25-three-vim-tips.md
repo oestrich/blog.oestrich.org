@@ -21,7 +21,7 @@ I used this tip to delete a column out of a csv file.
 
 Make sure you have the macro go down a line at the end of it, otherwise vim won't hit the end of the file and stop the macro.
 
-### An empty search will use the p item
+### An empty search will use the previous item
 
 When testing out a search I was going to use to mass replace text in vim I used `/` first. It ended up being a pretty complex regex and didn't want to copy and paste from my terminal, surely vim could do better than that. Turns out that it can. If you search for something complex via `/`, when you do a search and replace you can just leave the search section empty and vim will use the complex search you already have. Eg: `%s//new text/`.
 
