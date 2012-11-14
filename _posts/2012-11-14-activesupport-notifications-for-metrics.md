@@ -6,7 +6,7 @@ categories:
 title: ActiveSupport::Notifications for Metrics
 ---
 
-The other week I had to speed up an end point of an API I'm working on, and since I wanted to do it write I used metrics. A [coworker](https://twitter.com/nontrivialzeros) pointed me on to ActiveSupport::Notification.instrument previously so I gave it a go here.
+The other week I had to speed up an end point of an API I'm working on, and since I wanted to do it right I used metrics. A [coworker](https://twitter.com/nontrivialzeros) pointed me on to ActiveSupport::Notification.instrument previously so I gave it a go here.
 
 I ended up creating a module that you can include into a class which will instrument every method. I don't think it's the nicest code ever but it was handy in getting a somewhat large class set up quickly.
 
