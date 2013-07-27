@@ -1,3 +1,113 @@
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+  background-color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 10px 0;
+  font-family: inherit;
+  font-weight: bold;
+  line-height: 1;
+  color: inherit;
+  text-rendering: optimizelegibility;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 40px;
+}
+
+h2 {
+  font-size: 30px;
+  line-height: 40px;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 40px;
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 20px;
+}
+
+h5 {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+h6 {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+a {
+  color: #0088cc;
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0 0 10px 25px;
+}
+
+li {
+  line-height: 20px;
+}
+
+.container {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 940px;
+}
+
+.page-header {
+  padding-bottom: 9px;
+  margin: 20px 0 30px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.row {
+  margin-left: -20px;
+}
+
+.row:before, .row:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.row:after {
+  clear: both;
+}
+
+.span9 {
+  width: 700px;
+}
+
+.span3 {
+  width: 220px;
+}
+
+[class*="span"] {
+  float: left;
+  margin-left: 20px;
+}
+
+.photo {
+  margin-bottom: 15px;
+}
+
 img.float-img {
   float: right;
   padding-bottom: 20px;
