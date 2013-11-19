@@ -1,8 +1,7 @@
 markdown: rdiscount
 permalink: /:year/:month/:title
-auto: true
+relative_permalinks: false
 exclude:
 - Gemfile
 - Gemfile.lock
-- Guardfile
 - build
