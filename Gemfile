@@ -1,7 +1,5 @@
-source :rubygems
+source "https://rubygems.org"
 
-gem 'guard'
-gem 'guard-jekyll'
 gem 'jekyll'
 gem 'rdiscount'
 gem 'RedCloth'
