@@ -6,7 +6,7 @@ categories:
 title: Using Gradle to change your API's endpoint per build
 ---
 
-Forgetting to change your Android application's API endpoint when publishing to the Play Store is something I did at least three times when building SmartChat. They were all caught quickly and it was only an alpha app, so it wasn't ever a big issue. However, if we had pushed while not in alpha mode it wouldn't ever be a good thing.
+Forgetting to change your Android application's API endpoint when publishing to the Play Store is something I did at least three times when building SmartChat. They were all caught quickly and it was only an alpha app, so it wasn't ever a big issue. However, this is something I would like to avoid.
 
 I searched a bit and found that you could set BuildConfig variables per release type. This lets you never forget to change it again.
 
