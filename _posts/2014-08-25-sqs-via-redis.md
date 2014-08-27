@@ -13,50 +13,56 @@ For [SmartChat](http://github.com/smartlogic/smartchat-api) we used [SQS](http:/
 The SQS interface that we used was very simple. It has two methods that were used, `#send_messsage` and `#poll`. With this we can make a redis version.
 
 ##### redis_queue.rb
-    require 'redis'
+{% highlight ruby %}
+require 'redis'
 
-    RedisMessage = Struct.new(:body)
+RedisMessage = Struct.new(:body)
 
-    class RedisQueue
-      def initialize(redis)
-        @redis = redis
-      end
+class RedisQueue
+  def initialize(redis)
+    @redis = redis
+  end
 
-      def poll(&block)
-        loop do
-          queue, message = @redis.brpop("smartchat-queue")
-          # queue could be nil if a timeout happened
-          if queue
-            block.call(RedisMessage.new(message))
-          end
-        end
-      end
-
-      def send_message(message_json)
-        @redis.lpush("smartchat-queue", message_json)
+  def poll(&block)
+    loop do
+      queue, message = @redis.brpop("smartchat-queue")
+      # queue could be nil if a timeout happened
+      if queue
+        block.call(RedisMessage.new(message))
       end
     end
+  end
+
+  def send_message(message_json)
+    @redis.lpush("smartchat-queue", message_json)
+  end
+end
+{% endhighlight %}
 
 To use this, we have a `AppContainer` switch to it for development purposes and use it normally.
 
 ##### config/initializers/app_container.rb
-    #...
-    let(:queue) do
-      if Rails.env.development? || Rails.env.all?
-        require 'redis_queue'
-        RedisQueue.new(redis)
-      else
-        AWS::SQS.new.queues.named(sqs_queue_name)
-      end
-    end
-    #...
+{% highlight ruby %}
+#...
+let(:queue) do
+  if Rails.env.development? || Rails.env.all?
+    require 'redis_queue'
+    RedisQueue.new(redis)
+  else
+    AWS::SQS.new.queues.named(sqs_queue_name)
+  end
+end
+#...
+{% endhighlight %}
 
 ##### libexec/smartchat-daemon.rb
-    AppContainer.queue.poll do |msg|
-      body = JSON.parse(msg.body)
+{% highlight ruby %}
+AppContainer.queue.poll do |msg|
+  body = JSON.parse(msg.body)
 
-      # do work
-    end
+  # do work
+end
+{% endhighlight %}
 
 ## Related files
 - [redis_queue.rb](https://github.com/smartlogic/smartchat-api/blob/master/worker/lib/redis_queue.rb)

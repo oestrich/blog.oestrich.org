@@ -21,7 +21,9 @@ Being able to hang out with other developers who are interested in [APIs](http:/
 
 On the Thursday Hack day I want to play around with the gem Frenetic, [https://github.com/dlindahl/frenetic](https://github.com/dlindahl/frenetic). Right now it's kinda awkward to use it as a client because it requires a crazy amount of chaining. I would like to be able to knock that down a lot.
 
-    api.get(api.description.links.orders.href).body.resources.orders
+{% highlight ruby %}
+api.get(api.description.links.orders.href).body.resources.orders
+{% endhighlight %}
 
 In addition to getting the previous command shorter, Frenetic doesn't seem to give you easy accessors to the links that the API returns.
 

@@ -20,55 +20,61 @@ A service is a class that interacts with multiple models. If a method on a model
 Here's an example app on [github](http://github.com/oestrich/services_example) to supplement the code below.
 
 ##### app/controllers/orders_controller.rb
-    class OrdersController < ApplicationController
-      def create
-        service = OrderCreationService.new(current_user, params[:order])
-        service.perform
+{% highlight ruby %}
+class OrdersController < ApplicationController
+  def create
+    service = OrderCreationService.new(current_user, params[:order])
+    service.perform
 
-        if service.successful?
-          respond_with service.order
-        else
-          respond_with service.errors, :status => 422
-        end
-      end
+    if service.successful?
+      respond_with service.order
+    else
+      respond_with service.errors, :status => 422
     end
+  end
+end
+{% endhighlight %}
 
 ##### app/services/order_creation_service.rb
-    class OrderCreationService
-      include ActiveModel::Validations
+{% highlight ruby %}
+class OrderCreationService
+  include ActiveModel::Validations
 
-      validates :name, :presence => true
+  validates :name, :presence => true
 
-      attr_reader :user, :params, :order, :name
+  attr_reader :user, :params, :order, :name
 
-      delegate :as_json, :to => :order
+  delegate :as_json, :to => :order
 
-      def initialize(user, params)
-        @user = user
-        @params = params
+  def initialize(user, params)
+    @user = user
+    @params = params
 
-        params.each do |param, value|
-          instance_variable_set("@#{param}", value) if respond_to?(param)
-        end
-      end
-
-      def perform
-        return unless valid?
-
-        # This can be done with only one line, or you can go nuts and make
-        # this much more expansive if your desired functionality demands it
-        @order = user.orders.create(params)
-      end
-
-      def successful?
-        valid? && order.persisted?
-      end
+    params.each do |param, value|
+      instance_variable_set("@#{param}", value) if respond_to?(param)
     end
+  end
+
+  def perform
+    return unless valid?
+
+    # This can be done with only one line, or you can go nuts and make
+    # this much more expansive if your desired functionality demands it
+    @order = user.orders.create(params)
+  end
+
+  def successful?
+    valid? && order.persisted?
+  end
+end
+{% endhighlight %}
 
 Here's how this gives you the nice ability of having validations around the parameters your API takes:
 
-    $ curl -X POST http://localhost:3000/orders
-    { 'errors': { 'name': ["can't be blank"] } }
+{% highlight bash %}
+$ curl -X POST http://localhost:3000/orders
+{ 'errors': { 'name': ["can't be blank"] } }
+{% endhighlight %}
 
 With this method, your <a href="http://blog.smartlogicsolutions.com/2012/08/28/api-planning-and-proceeding-tell-me-what-youre-working-with/" target="_blank">API development</a> results in cleaner, more reliable code that will be easier for both internal developers and external developers to work with. Also, be sure to test via <a href="http://blog.smartlogicsolutions.com/2012/07/12/curlin-for-docs/" target="_blank">RspecApiDocumentation and Raddocs</a>.
 

@@ -10,21 +10,24 @@ My co-worker, [Sam Goldman](http://twitter.com/nontrivialzeros), a while back sh
 It's really easy to set up, just add the following to your `.irbrc` file.
 
 ##### ~/.irbrc
+{% highlight ruby %}
+def tic
+  @tic = Time.now
+end
 
-    def tic
-      @tic = Time.now
-    end
-
-    def toc
-      "#{Time.now - @tic} seconds"
-    end
+def toc
+  "#{Time.now - @tic} seconds"
+end
+{% endhighlight %}
 
 Once that's set up you can call it surrouding the method you want to time.
 
-    irb(main):003:0> tic; puts "Hello"; toc
-    Hello
-    => "3.0686e-05 seconds"
-    irb(main):004:0> tic; sleep 2; toc
-    => "2.000082375 seconds"
+{% highlight ruby %}
+irb(main):003:0> tic; puts "Hello"; toc
+Hello
+#=> "3.0686e-05 seconds"
+irb(main):004:0> tic; sleep 2; toc
+#=> "2.000082375 seconds"
+{% endhighlight %}
 
 It's also in my dotfiles repo on [github](https://github.com/oestrich/dotfiles/blob/master/irbrc).

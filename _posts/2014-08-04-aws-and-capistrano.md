@@ -21,30 +21,32 @@ In the deploy script for production we can now use the AWS SDK to pull your inst
 Dotenv is used because AWS keys are stored in `.env` and capistrano won't load that normally.
 
 ##### config/deploy/production.md
-    require 'aws-sdk'
-    require 'dotenv'
-    Dotenv.load
+{% highlight ruby %}
+require 'aws-sdk'
+require 'dotenv'
+Dotenv.load
 
-    set :rails_env, "production"
+set :rails_env, "production"
 
-    primary = true
+primary = true
 
-    ec2 = AWS::EC2.new
-    ec2.instances.tagged("Type").tagged_values("web").each do |instance|
-      next unless instance.status == :running
+ec2 = AWS::EC2.new
+ec2.instances.tagged("Type").tagged_values("web").each do |instance|
+  next unless instance.status == :running
 
-      # We only want one application server migrating the database
-      server instance.public_dns_name, :web, :app, :db, :primary => primary
+  # We only want one application server migrating the database
+  server instance.public_dns_name, :web, :app, :db, :primary => primary
 
-      primary = false
-    end
+  primary = false
+end
 
-    ec2.instances.tagged("Type").tagged_values("worker").each do |instance|
-      next unless instance.status == :running
-      server instance.public_dns_name, :worker, :app
-    end
+ec2.instances.tagged("Type").tagged_values("worker").each do |instance|
+  next unless instance.status == :running
+  server instance.public_dns_name, :worker, :app
+end
 
-    ec2.instances.tagged("Type").tagged_values("scheduler").each do |instance|
-      next unless instance.status == :running
-      server instance.public_dns_name, :scheduler, :app
-    end
+ec2.instances.tagged("Type").tagged_values("scheduler").each do |instance|
+  next unless instance.status == :running
+  server instance.public_dns_name, :scheduler, :app
+end
+{% endhighlight %}
