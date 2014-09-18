@@ -141,6 +141,10 @@ img.float-img {
   padding-left: 0;
 }
 
+.license {
+  margin-top: 20px;
+}
+
 /* terminal */
 .post pre.terminal {
   border: 1px solid #000;
