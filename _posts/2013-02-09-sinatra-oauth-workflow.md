@@ -17,88 +17,90 @@ This is the code I used to speed up OAuth and inspect the third party app's API.
 [gist](https://gist.github.com/30350e793bc7900aa952)
 
 ##### server.rb
-    require 'sinatra'
-    require 'json'
-    require 'faraday'
-    require 'faraday_middleware'
+{% highlight ruby %}
+require 'sinatra'
+require 'json'
+require 'faraday'
+require 'faraday_middleware'
 
-    enable :sessions
+enable :sessions
 
-    IDENTIFIER = "YOUR_IDENTIFIER"
-    SECRET = "YOUR_SECRET"
-    REDIRECT_URI = "http://localhost:3000/auth"
-    AUTH_URL = "https://api.harvestapp.com/oauth2/authorize"
-    TOKEN_URL = "https://api.harvestapp.com/oauth2/token"
-    BASE_API_URL = "https://api.harvestapp.com/"
+IDENTIFIER = "YOUR_IDENTIFIER"
+SECRET = "YOUR_SECRET"
+REDIRECT_URI = "http://localhost:3000/auth"
+AUTH_URL = "https://api.harvestapp.com/oauth2/authorize"
+TOKEN_URL = "https://api.harvestapp.com/oauth2/token"
+BASE_API_URL = "https://api.harvestapp.com/"
 
-    # Middlware to insert "Accept: application/json" header
-    class JsonMiddleware < Faraday::Middleware
-      def call(env)
-        env[:request_headers]["Accept"] = "application/json"
-        @app.call(env)
-      end
-    end
+# Middlware to insert "Accept: application/json" header
+class JsonMiddleware < Faraday::Middleware
+  def call(env)
+    env[:request_headers]["Accept"] = "application/json"
+    @app.call(env)
+  end
+end
 
-    # Redirect to the API to start the OAuth handshake
-    # http://www.getharvest.com/api/authentication-oauth2
-    # http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-4.1
-    get "/" do
-      query_string = Rack::Utils.build_query({
-        :client_id => IDENTIFIER,
-        :redirect_uri => REDIRECT_URI,
-        :state => "optional-csrf-token",
-        :response_type => "code"
-      })
+# Redirect to the API to start the OAuth handshake
+# http://www.getharvest.com/api/authentication-oauth2
+# http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-4.1
+get "/" do
+  query_string = Rack::Utils.build_query({
+    :client_id => IDENTIFIER,
+    :redirect_uri => REDIRECT_URI,
+    :state => "optional-csrf-token",
+    :response_type => "code"
+  })
 
-      redirect "#{AUTH_URL}?#{query_string}"
-    end
+  redirect "#{AUTH_URL}?#{query_string}"
+end
 
-    # Harvest will redirect back here with the OAuth code you
-    # use to get the access token.
-    get "/auth" do
-      query_string = Rack::Utils.build_query({
-        :code => params[:code],
-        :client_id => IDENTIFIER,
-        :client_secret => SECRET,
-        :redirect_uri => REDIRECT_URI,
-        :grant_type => "authorization_code"
-      })
+# Harvest will redirect back here with the OAuth code you
+# use to get the access token.
+get "/auth" do
+  query_string = Rack::Utils.build_query({
+    :code => params[:code],
+    :client_id => IDENTIFIER,
+    :client_secret => SECRET,
+    :redirect_uri => REDIRECT_URI,
+    :grant_type => "authorization_code"
+  })
 
-      response = Faraday.post("#{TOKEN_URL}?#{query_string}")
-      session[:token] = JSON.parse(response.body)["access_token"]
-      redirect "/token"
-    end
+  response = Faraday.post("#{TOKEN_URL}?#{query_string}")
+  session[:token] = JSON.parse(response.body)["access_token"]
+  redirect "/token"
+end
 
-    # Removes favicon warnings
-    get "/favicon.ico" do
-    end
+# Removes favicon warnings
+get "/favicon.ico" do
+end
 
-    # Display your access token
-    get "/token" do
-      session[:token]
-    end
+# Display your access token
+get "/token" do
+  session[:token]
+end
 
-    # Proxy everything after / to Harvest
-    #
-    # http://localhost:3000/projects/1/entries?from=2013-01-10&to=2013-01-14
-    # => https://api.harvest.com/projects/1/entries?from=2013-01-10&to=2013-01-14
-    get "/*" do
-      headers "Content-Type" => "text/plain"
+# Proxy everything after / to Harvest
+#
+# http://localhost:3000/projects/1/entries?from=2013-01-10&to=2013-01-14
+# => https://api.harvest.com/projects/1/entries?from=2013-01-10&to=2013-01-14
+get "/*" do
+  headers "Content-Type" => "text/plain"
 
-      params.delete("captures")
-      url = "/#{params.delete("splat").join}?"
-      url += Rack::Utils.build_query(params)
+  params.delete("captures")
+  url = "/#{params.delete("splat").join}?"
+  url += Rack::Utils.build_query(params)
 
-      client = Faraday.new(:url => BASE_API_URL) do |faraday|
-        faraday.request :url_encoded
-        faraday.request :oauth2, session[:token]
-        faraday.use JsonMiddleware
-        faraday.adapter Faraday.default_adapter
-      end
+  client = Faraday.new(:url => BASE_API_URL) do |faraday|
+    faraday.request :url_encoded
+    faraday.request :oauth2, session[:token]
+    faraday.use JsonMiddleware
+    faraday.adapter Faraday.default_adapter
+  end
 
-      response_body = client.get(url).body
-      JSON.pretty_generate(JSON.parse(response_body))
-    end
+  response_body = client.get(url).body
+  JSON.pretty_generate(JSON.parse(response_body))
+end
+{% endhighlight %}
 
 How do you handle OAuth without [cURLin'](http://blog.smartlogicsolutions.com/2012/07/12/curlin-for-docs/) all day long? Comment and let us know.
 

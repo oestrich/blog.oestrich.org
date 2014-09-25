@@ -10,8 +10,10 @@ Today I set up my first real rails production server and in the process ran acro
 
 Every time cron ran though, it kept giving me the following error:
 
-    rvm: command not found
-    rake: command not found
+{% highlight bash %}
+rvm: command not found
+rake: command not found
+{% endhighlight %}
 
 After some quick googling I came across two posts that let me do the rake task:
 
@@ -22,9 +24,11 @@ Sourcing the rvm script was the part I was missing.
 
 This was the final script I came up with:
 
-    #!/bin/bash
+{% highlight bash %}
+#!/bin/bash
 
-    source ~/.rvm/scripts/rvm
-    cd /home/deploy/apps/my_app
-    rvm use 1.9.2@my_app
-    RAILS_ENV=production rake email:reminder
+source ~/.rvm/scripts/rvm
+cd /home/deploy/apps/my_app
+rvm use 1.9.2@my_app
+RAILS_ENV=production rake email:reminder
+{% endhighlight %}

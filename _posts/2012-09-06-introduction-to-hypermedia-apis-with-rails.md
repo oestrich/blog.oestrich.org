@@ -11,28 +11,30 @@ Last week SmartLogic had an internal conference where I gave a presentation on h
 
 I used the [frenetic](https://github.com/dlindahl/frenetic) gem to create my hal client. It's pretty verbose currently and let's just gloss over all those periods. It's a nice starting point for a HAL api.
 
-    require 'frenetic'
+{% highlight ruby %}
+require 'frenetic'
 
-    MyAPI = Frenetic.new({
-      'url'          => 'http://hypermedia.dev',
-      'username'     => 'qxpRbQpqAw3YugKUpErW',
-      'password'     => 'qxpRbQpqAw3YugKUpErW',
-      'headers' => {
-        'accept' => 'application/hal+json'
-      }
-    })
+MyAPI = Frenetic.new({
+  'url'          => 'http://hypermedia.dev',
+  'username'     => 'qxpRbQpqAw3YugKUpErW',
+  'password'     => 'qxpRbQpqAw3YugKUpErW',
+  'headers' => {
+    'accept' => 'application/hal+json'
+  }
+})
 
-    class Order < Frenetic::Resource
-      api_client { MyAPI }
+class Order < Frenetic::Resource
+  api_client { MyAPI }
 
-      def self.orders
-        api.get(api.description.links.orders.href).body.resources.orders.map do |order|
-          new(order)
-        end
-      end
+  def self.orders
+    api.get(api.description.links.orders.href).body.resources.orders.map do |order|
+      new(order)
     end
+  end
+end
 
-    p Order.orders
+p Order.orders
+{% endhighlight %}
 
 #### Resources
 * [presentation](http://oestri.ch/presentations/intro-hypermedia)

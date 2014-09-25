@@ -9,20 +9,22 @@ When using a Cursor in Android I prefer to pull out a row into a Java object. Th
 
 This method will pull out columns into the appropriate member variable. It will only pull out a column if it is in the selected columns.
 
-    public class MyModel {
-        public static MyModel fromCursor(Cursor cursor) {
-            MyModel myModel = new MyModel();
+{% highlight java %}
+public class MyModel {
+    public static MyModel fromCursor(Cursor cursor) {
+        MyModel myModel = new MyModel();
 
-            if (cursor.getColumnIndex("_id") != -1) {
-                myModel.setId(cursor.getInt(cursor.getColumnIndex("_id")));
-            }
-
-            if (cursor.getColumnIndex("description") != -1) {
-                myModel.setDescription(cursor.getString(cursor.getColumnIndex("description")));
-            }
-
-            /* ... */
-
-            return myModel;
+        if (cursor.getColumnIndex("_id") != -1) {
+            myModel.setId(cursor.getInt(cursor.getColumnIndex("_id")));
         }
+
+        if (cursor.getColumnIndex("description") != -1) {
+            myModel.setDescription(cursor.getString(cursor.getColumnIndex("description")));
+        }
+
+        /* ... */
+
+        return myModel;
     }
+}
+{% endhighlight %}

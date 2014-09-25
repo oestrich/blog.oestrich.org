@@ -13,16 +13,18 @@ I made it look similar to the [nerdword-api](https://github.com/smartlogic/nerdw
 
 Below is the code required:
 
-    #!/usr/bin/env ruby
+{% highlight ruby %}
+#!/usr/bin/env ruby
 
-    require File.expand_path('../config/environment',  __FILE__)
-    require 'capybara/server'
+require File.expand_path('../config/environment',  __FILE__)
+require 'capybara/server'
 
-    Capybara.server do |app, port|
-      require 'rack/handler/thin'
-      Thin::Logging.silent = true
-      Rack::Handler::Thin.run(app, :Port => port)
-    end
+Capybara.server do |app, port|
+  require 'rack/handler/thin'
+  Thin::Logging.silent = true
+  Rack::Handler::Thin.run(app, :Port => port)
+end
 
-    server = Capybara::Server.new(Rails.application, 8888)
-    server.boot
+server = Capybara::Server.new(Rails.application, 8888)
+server.boot
+{% endhighlight %}

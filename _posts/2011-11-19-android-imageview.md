@@ -9,7 +9,18 @@ Android's ImageView does a strange thing when you have it stretch to fit the wid
 
 This:
 
-<script type="text/javascript" src="https://gist.github.com/1379095.js?file=layout_image_stretched.xml"></script>
+{% highlight java %}
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/red" />
+</RelativeLayout>
+{% endhighlight %}
 
 Gives you:
 
@@ -19,7 +30,19 @@ In order to fix this you can set the property "android:adjustViewBounds" to true
 
 This:
 
-<script type="text/javascript" src="https://gist.github.com/1379095.js?file=layout_image.xml"></script>
+{% highlight java %}
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/red" 
+        android:adjustViewBounds="true"/>
+</RelativeLayout>
+{% endhighlight %}
 
 Gives you:
 

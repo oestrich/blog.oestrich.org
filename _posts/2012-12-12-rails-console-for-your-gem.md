@@ -10,26 +10,26 @@ I have been creating a gem recently and will usually want to open up an `irb` se
 Below is what it ended up looking like.
 
 ##### script/console
+{% highlight ruby %}
+b = File.expand_path('../../lib/', __FILE__)
+$:.unshift lib unless $:.include?(lib)
 
-    b = File.expand_path('../../lib/', __FILE__)
-    $:.unshift lib unless $:.include?(lib)
+require 'my_gem'
+require 'irb'
 
-    require 'my_gem'
-    require 'irb'
+MyGem.configure do |config|
+  config.name = "My Gem"
+end
 
-    MyGem.configure do |config|
-      config.name = "My Gem"
-    end
+IRB.setup(nil)
+irb = IRB::Irb.new
+IRB.conf[:MAIN_CONTEXT] = irb.context
+irb.context.evaluate("require 'irb/completion'", 0)
 
-    IRB.setup(nil)
-    irb = IRB::Irb.new
-    IRB.conf[:MAIN_CONTEXT] = irb.context
-    irb.context.evaluate("require 'irb/completion'", 0)
-
-    trap("SIGINT") do
-      irb.signal_handle
-    end
-    catch(:IRB_EXIT) do
-      irb.eval_input
-    end
-
+trap("SIGINT") do
+  irb.signal_handle
+end
+catch(:IRB_EXIT) do
+  irb.eval_input
+end
+{% endhighlight %}

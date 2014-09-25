@@ -9,15 +9,17 @@ I've been playing around with [Faraday](https://github.com/technoweenie/faraday)
 
 Here is a sample middleware that I ended up using:
 
-    class MyMiddleware < Faraday::Middleware
-      def call(env)
-        env[:request_headers]["My-Custom-Header"] = "my-custom-value"
+{% highlight ruby %}
+class MyMiddleware < Faraday::Middleware
+  def call(env)
+    env[:request_headers]["My-Custom-Header"] = "my-custom-value"
 
-        @app.call(env)
-      end
-    end
+    @app.call(env)
+  end
+end
 
-    connection = Faraday.new("http://google.com/") do |faraday|
-      faraday.use MyMiddleware
-      faraday.adapter Faraday.default_adapter
-    end
+connection = Faraday.new("http://google.com/") do |faraday|
+  faraday.use MyMiddleware
+  faraday.adapter Faraday.default_adapter
+end
+{% endhighlight %}
