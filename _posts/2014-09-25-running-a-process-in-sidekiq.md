@@ -85,7 +85,7 @@ The important part about this class is the `after(1)` call. It queues the block 
 
 I've run this in my side project for a few months now and I haven't noticed any ill effects.
 
-[sidekiq]:
-[sidetiq]:
-[celluloid]:
-[celluloid-supervisors]:
+[sidekiq]: http://sidekiq.org/
+[sidetiq]: https://github.com/tobiassvn/sidetiq
+[celluloid]: https://github.com/celluloid/celluloid
+[celluloid-supervisors]: https://github.com/celluloid/celluloid/wiki/Supervisors
