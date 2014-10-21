@@ -4,7 +4,7 @@ categories:
 - ruby
 - faraday
 - json
-title: JSON Pointer Faraday Middleware"
+title: JSON Pointer Faraday Middleware
 ---
 
 At [Ruby DCamp][rubydcamp] I spent some time writing a faraday middleware that  automatically dereferences JSON pointers. It was a fun exercise in reading an [RFC spec][rfc] and writing something that implements it. I wanted to do this after some cool demonstrations I saw at RESTFest this year. One was [hyper+json][hyperjson] which uses JSON Pointers.
