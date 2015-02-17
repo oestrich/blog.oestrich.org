@@ -13,8 +13,8 @@ public class MyProvider extends ContentProvider {
   private static final int ORDERS = 1;
   private static final int ORDERS_ID = 2;
 
-  private static final int ITEMS = 1;
-  private static final int ITEMS_ID = 1;
+  private static final int ITEMS = 3;
+  private static final int ITEMS_ID = 4;
 
   private static final UriMatcher mUriMatcher = new UriMatcher(
       UriMatcher.NO_MATCH);
