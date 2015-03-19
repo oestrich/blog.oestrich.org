@@ -5,6 +5,10 @@ relative_permalinks: false
 paginate: 5
 paginate_path: "page-:num"
 
+title: Eric's Devblog
+description: Developer blog for Eric Oestrich
+url: https://blog.oestrich.org/
+
 exclude:
 - Gemfile
 - Gemfile.lock
