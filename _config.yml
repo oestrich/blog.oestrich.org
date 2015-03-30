@@ -7,7 +7,7 @@ paginate_path: "page-:num"
 
 title: Eric's Devblog
 description: Developer blog for Eric Oestrich
-url: https://blog.oestrich.org/
+url: http://blog.oestrich.org
 
 exclude:
 - Gemfile

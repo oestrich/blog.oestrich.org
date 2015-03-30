@@ -23,11 +23,26 @@
     {% endif %}
 
     {% if page.url %}
-    <meta content="{{ site.url }}{{ page.url }}" property="og:url">
+    <meta content="{{ site.url }}{{ page.url }}/" property="og:url">
     {% endif %}
 
     {% if page.date %}
     <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
+    {% endif %}
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ericoestrich">
+    <meta name="twitter:creator" content="@ericoestrich">
+    {% if page.title %}
+    <meta name="twitter:title" content="{{ page.title }}">
+    {% endif %}
+    {% if page.url %}
+    <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+    {% endif %}
+    {% if page.description %}
+    <meta name="twitter:description" content="{{ page.description }}">
+    {% else %}
+    <meta name="twitter:description" content="{{ site.description }}">
     {% endif %}
 
     <link rel="stylesheet" href="/css/style.css" />
