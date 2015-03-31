@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
-  line-height: 20px;
+  line-height: 23px;
   color: #333333;
   background-color: #ffffff;
 }
@@ -68,7 +68,7 @@ li {
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  width: 1080px;
+  width: 980px;
 }
 
 .page-header {
@@ -92,7 +92,7 @@ li {
 }
 
 .span9 {
-  width: 800px;
+  width: 700px;
 }
 
 .span3 {
