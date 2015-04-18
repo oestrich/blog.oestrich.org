@@ -143,6 +143,8 @@ img.float-img {
 }
 
 .license {
+  font-size: 12px;
+  line-height: 15px;
   margin-top: 20px;
 }
 
@@ -250,4 +252,18 @@ img.float-img {
   .page-header a {
     margin-left: 10%;
   }
+}
+
+.all-posts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.all-posts li {
+  margin-bottom: 5px;
+}
+
+.all-posts span {
+  padding-right: 5px;
 }
