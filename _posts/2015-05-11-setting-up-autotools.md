@@ -97,6 +97,19 @@ prog_SOURCES = main.c # list out all source files
 
 `bin_PROGRAMS` tells automake what binary files will be generated. `prog_CFLAGS` and `prog_LDFLAGS` sets up the `CFLAGS` and `LDFLAGS` appropriately. This is where you will add `-I` and `-l` flags. `prog_SOURCES` are what sources gets compiled into `prog`. The last three lines are named after the binary file that is generated.
 
+## All together
+
+Once these files are in place you will be able to clone the repo, and within a few simple commands be compiling your project. Below is the full set of commands it takes.
+
+``` bash
+$ git clone $GIT_REPO git_repo
+$ cd git_repo
+$ ./autogen.sh
+$ ./configure
+$ make
+$ src/prog
+```
+
 With this set up I have been able to get past the big hurdle of compiling multiple C source files, and start learning C itself. I hope this helps others get over the hurdle as well.
 
 [century-c]: http://shop.oreilly.com/product/0636920033677.do
