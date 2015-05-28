@@ -1,10 +1,12 @@
 ---
 layout: post
+date: 2015-05-28 11:11
 categories:
 - elasticsearch
 - ruby
 - chewy
 title: Elasticsearch Suggesters with Chewy
+description: Tutorial for using elasticsearch autocompletion
 ---
 
 We recently started migrating a page with filtering over to [elasticsearch][elasticsearch]. One of the filtering options allows you to search for someone's name, to make this a nicer experience we added autocompletion for that name. To help with this we used the [chewy][chewy] gem.
