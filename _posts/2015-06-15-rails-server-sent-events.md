@@ -6,6 +6,7 @@ categories:
 - python
 title: Server Sent Events with Rails
 description: Mini tutorial on doing Server Sent Events with Rails
+date: 2015-06-15 20:00:00 -0400
 ---
 
 I'm doing a fun side project and found a use case for Server Sent Events. I found out about these last [REST Fest][restfest] and have wanted to use them since then. This is a small tutorial on how I got it going.
