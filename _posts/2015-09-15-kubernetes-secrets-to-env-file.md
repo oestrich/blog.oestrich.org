@@ -97,6 +97,21 @@ spec:
 
 This replication controller mounts the secret into `/etc/env`.
 
+##### Dockerfile
+
+To use the new script in your `Dockerfile` change the entrypoint to:
+
+``` docker
+ENTRYPOINT ["./foreman.sh"]
+```
+
+With `foreman.sh` as:
+
+``` bash
+#!/bin/bash
+ruby env.rb .env /etc/env && foreman start ${BASH_ARGV[0]}
+```
+
 ## Improvements
 
 This isn't the nicest set up but it is a good stop gap until we can figure something else out. Some places to consider going forward are [Keywhiz][keywhiz] and [etcd][etcd]. Either of those should be a much better configuration management.
