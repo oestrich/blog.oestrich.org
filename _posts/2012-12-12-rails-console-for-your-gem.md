@@ -10,7 +10,7 @@ I have been creating a gem recently and will usually want to open up an `irb` se
 Below is what it ended up looking like.
 
 ##### script/console
-{% highlight ruby %}
+```ruby
 b = File.expand_path('../../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
 
@@ -32,4 +32,4 @@ end
 catch(:IRB_EXIT) do
   irb.eval_input
 end
-{% endhighlight %}
+```

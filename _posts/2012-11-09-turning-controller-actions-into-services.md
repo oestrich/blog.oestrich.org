@@ -20,7 +20,7 @@ A service is a class that interacts with multiple models. If a method on a model
 Here's an example app on [github](http://github.com/oestrich/services_example) to supplement the code below.
 
 ##### app/controllers/orders_controller.rb
-{% highlight ruby %}
+```ruby
 class OrdersController < ApplicationController
   def create
     service = OrderCreationService.new(current_user, params[:order])
@@ -33,10 +33,10 @@ class OrdersController < ApplicationController
     end
   end
 end
-{% endhighlight %}
+```
 
 ##### app/services/order_creation_service.rb
-{% highlight ruby %}
+```ruby
 class OrderCreationService
   include ActiveModel::Validations
 
@@ -67,14 +67,14 @@ class OrderCreationService
     valid? && order.persisted?
   end
 end
-{% endhighlight %}
+```
 
 Here's how this gives you the nice ability of having validations around the parameters your API takes:
 
-{% highlight bash %}
+```bash
 $ curl -X POST http://localhost:3000/orders
 { 'errors': { 'name': ["can't be blank"] } }
-{% endhighlight %}
+```
 
 With this method, your <a href="http://blog.smartlogicsolutions.com/2012/08/28/api-planning-and-proceeding-tell-me-what-youre-working-with/" target="_blank">API development</a> results in cleaner, more reliable code that will be easier for both internal developers and external developers to work with. Also, be sure to test via <a href="http://blog.smartlogicsolutions.com/2012/07/12/curlin-for-docs/" target="_blank">RspecApiDocumentation and Raddocs</a>.
 

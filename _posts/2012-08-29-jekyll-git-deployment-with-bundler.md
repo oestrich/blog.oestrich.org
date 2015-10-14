@@ -9,7 +9,7 @@ I recently converted my blog over to Jekyll, mainly to not have MySQL running. O
 
 The starting post-receive from [Jekyll Deployment Guide](https://github.com/mojombo/jekyll/wiki/Deployment).
 ##### hooks/post-receive (original)
-{% highlight bash %}
+```bash
 GIT_REPO=$HOME/myrepo.git
 TMP_GIT_CLONE=$HOME/tmp/myrepo
 PUBLIC_WWW=/var/www/myrepo
@@ -18,14 +18,14 @@ git clone $GIT_REPO $TMP_GIT_CLONE
 jekyll --no-auto $TMP_GIT_CLONE $PUBLIC_WWW
 rm -Rf $TMP_GIT_CLONE
 exit
-{% endhighlight %}
+```
 
 I did `bundler install --deployment` so that it would be in the local directory. The problem with this is that jekyll then picks up the test posts in the gem as your posts. Now I had a ton of bad posts on my blog. (You may have noticed them in the feed.)
 
 I also set it up so that it doesn't blow away the repo (and the gems) every time I push up a new post.
 
 ##### hooks/post-receive (final)
-{% highlight bash %}
+```bash
 GIT_REPO=$HOME/repos/blog.oestrich.org
 TMP_GIT_CLONE=$HOME/tmp/blog.oestrich.org
 PUBLIC_WWW=$HOME/vhosts/blog.oestrich.org
@@ -50,4 +50,4 @@ rm -rf $TMP_GIT_CLONE/vendor/bundle/ruby/1.9.1/gems/jekyll-0.11.2/test/source
 bundle exec jekyll --no-auto $TMP_GIT_CLONE $PUBLIC_WWW
 
 exit
-{% endhighlight %}
+```

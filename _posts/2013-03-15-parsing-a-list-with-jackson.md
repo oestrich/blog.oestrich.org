@@ -10,7 +10,7 @@ I started on a new Android project that pulls JSON form a web service. One of th
 
 Replace `MyClass` with the class you want to deserialize to.
 
-{% highlight java %}
+```java
 ObjectMapper mapper = new ObjectMapper();
 mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 
@@ -18,4 +18,4 @@ TypeFactory typeFactory = TypeFactory.defaultInstance();
 List<MyClass> my_classes = mapper.readValue(responseJson, typeFactory
     .constructCollectionType(ArrayList.class, MyClass.class));
 
-{% endhighlight %}
+```

@@ -13,7 +13,7 @@ I started up on android again and started using the SQLite database for the firs
 Note that this hasn't been used outside of my test app. I also have only created one migration with it so far, but I like how it went. An abstract class might also not be the best way to go, but I haven't used it since college and wanted to try it out again.
 
 ##### src/org/oestrich/myapp/migrations/Migration.java
-{% highlight java %}
+```java
 package org.oestrich.myapp.migrations;
 
 import android.database.sqlite.SQLiteDatabase;
@@ -33,10 +33,10 @@ public abstract class Migration {
                 return mDatabase;
         }
 }
-{% endhighlight %}
+```
 
 ##### src/org/oestrich/myapp/migrations/InitialDatabase.java
-{% highlight java %}
+```java
 package org.oestrich.myapp.migrations;
 
 import android.database.sqlite.SQLiteDatabase;
@@ -59,10 +59,10 @@ public class InitialDatabase extends Migration {
         }
 
 }
-{% endhighlight %}
+```
 
 ##### src/org/oestrich/myapp/database_helper.rb
-{% highlight java %}
+```java
 package org.oestrich.myapp;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -85,6 +85,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // ...
 }
-{% endhighlight %}
+```
 
 [Image Source](http://www.flickr.com/photos/rwjensen/3482243965/)

@@ -11,9 +11,9 @@ _This post was originally published on the_
 
 You may have docs for your API, but do you have an API for your docs? With RspecApiDocumentation and Raddocs, you can cURL for your documentation. Try out the following cURL command to see for yourself:
 
-{% highlight bash %}
+```bash
 $ curl -H "Accept: text/docs+plain" http://rad-example.herokuapp.com/orders
-{% endhighlight %}
+```
 
 ![This cURL trick might save you so much time you can go curling! (Sorry.)](/images/curling.jpeg)
 
@@ -37,21 +37,21 @@ The rspec_api_documentation gem (RAD for short) is a gem that lets you easily cr
 Installing RAD is as simple as adding it to your Gemfile. You might want to add it to a test and development group because it has a handy rake task for generating docs.
 
 ##### Gemfile
-{% highlight ruby %}
+```ruby
 gem "rspec_api_documentation"
-{% endhighlight %}
+```
 
 ##### Install gem
-{% highlight bash %}
+```bash
 $ bundle
-{% endhighlight %}
+```
 
 ## Configure
 
 Once RAD is installed there are several options you probably want to configure. Listed below are all of the default options that RAD ships with. The most common ones you will want to change are "api_name", "docs_dir", "format", and "url_prefix".
 
 ##### spec/spec_helper.rb
-{% highlight ruby %}
+```ruby
 RspecApiDocumentation.configure do |config|
   # All settings shown are the default values
   config.app = Rails.application # if it’s a rails app
@@ -86,14 +86,14 @@ RspecApiDocumentation.configure do |config|
     config.url_prefix = “/public”
   end
 end
-{% endhighlight %}
+```
 
 ## Write tests
 
 Tests for RAD are written in a DSL which helps assist in getting the metadata correct for properly formatting the outputted docs. Tests go in `spec/acceptance`.
 
 ##### spec/acceptance/orders_spec.rb
-{% highlight ruby %}
+```ruby
 require 'acceptance_helper'
 
 resource "Orders" do
@@ -188,7 +188,7 @@ resource "Orders" do
     end
   end
 end
-{% endhighlight %}
+```
 
 ### DSL Methods of Interest
 
@@ -208,14 +208,14 @@ Raddocs is a simple Sinatra app that will take the JSON output from RAD and serv
 1.  Mount Raddocs
 
 ##### spec/spec_helper.rb
-{% highlight ruby %}
+```ruby
 RspecApiDocumentation.configure do |config|
   config.formats = [:json, :combined_text]
 end
-{% endhighlight %}
+```
 
 ##### config/initializers/raddocs.rb
-{% highlight ruby %}
+```ruby
 Raddocs.configure do |config|
   # output dir from RAD
   config.docs_dir = "docs"
@@ -223,19 +223,19 @@ Raddocs.configure do |config|
   # Should be in the form of text/vnd.com.example.docs+plain
   config.docs_mime_type = /text\/docs\+plain/
 end
-{% endhighlight %}
+```
 
 ##### config/routes.rb
-{% highlight ruby %}
+```ruby
 match "/docs" => Raddocs::App, :anchor => false
-{% endhighlight %}
+```
 
 For middleware
 
 ##### config/application.rb
-{% highlight ruby %}
+```ruby
 config.middleware.use "Raddocs::Middleware"
-{% endhighlight %}
+```
 
 ## Conclusion
 

@@ -22,7 +22,7 @@ To have photos automatically deleted after 7 days open the S3 properties for the
 Place the following script in a folder in your `PATH`. I have `~/bin` in my path for such a case. You will need to change the `HOST`, `access_key_id`, and `secret_access_key`.
 
 ##### upload.rb
-{% highlight ruby %}
+```ruby
 #!/usr/bin/env ruby
 
 require 'aws-sdk'
@@ -70,4 +70,4 @@ Clipboard.copy url
 puts url
 
 sleep 5
-{% endhighlight %}
+```

@@ -18,7 +18,7 @@ I like to use [ActiveModel::Serializers][activemodelserializers] and this DSL ha
 
 ##### app/controllers/orders_controller.rb
 
-``` ruby
+```ruby
 class OrdersController < ApplicationController
   def index
     render :json => orders, :serializer => OrdersSerializer, :meta => {
@@ -42,7 +42,7 @@ Here is the controller. Of note is `show` displaying an array of orders, since t
 
 ##### app/serializers/order_serializer.rb
 
-``` ruby
+```ruby
 class OrderSerializer < ActiveModel::Serialier
   include CollectionJson
 
@@ -58,7 +58,7 @@ Here is the `OrderSerializer`. It includes `CollectionJson` which adds the DSL. 
 
 ##### app/serializers/orders_serializer.rb
 
-``` ruby
+```ruby
 class OrdersSerializer < ActiveModel::Serializer
   include CollectionJson
 
@@ -91,7 +91,7 @@ Here we see some more of the DSL. Generating links, queries, and the template. Y
 
 ##### config/initializers/serializers.rb
 
-``` ruby
+```ruby
 require 'collection_json'
 ActiveModel::Serializer.config.adapter = :collection_json
 
@@ -114,7 +114,7 @@ Here are the two files that make the above happen:
 
 ##### app/serializers/collection_json.rb
 
-``` ruby
+```ruby
 module CollectionJson
   extend ActiveSupport::Concern
 
@@ -270,7 +270,7 @@ end
 
 ##### lib/collection_json.rb
 
-``` ruby
+```ruby
 module ActiveModel
   class Serializer
     module Adapter

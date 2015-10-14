@@ -15,16 +15,16 @@ Below are some common things I've had to use. You can check out an example [here
 ### Disable Root
 This one is pretty easy, we just need to not have the element type be the root key.
 
-{% highlight ruby %}
+```ruby
 class OrderSerializer < ActiveModel::Serializer
   root false
 end
-{% endhighlight %}
+```
 
 ### Embedded Resources
 Since HAL resources have other resources in the "\_embedded" key, we need to make sure collections show up there.
 
-{% highlight ruby %}
+```ruby
 class OrderSerializer < ActiveModel::Serializer
   has_many :items
 
@@ -36,12 +36,12 @@ class OrderSerializer < ActiveModel::Serializer
     hash
   end
 end
-{% endhighlight %}
+```
 
 ### Links
 Adding links is pretty easy with ActiveModel::Serializers, just add a new attribute. One thing to watch out for, the collection serializers don't have access to url helpers.
 
-{% highlight ruby %}
+```ruby
 class OrderSerializer < ActiveModel::Serializer
   attributes :_links
 
@@ -53,12 +53,12 @@ class OrderSerializer < ActiveModel::Serializer
     }
   end
 end
-{% endhighlight %}
+```
 
 ### Slimming Down Serializers
 I wanted to use the same serializer for both an index and a show resource, but they didn't show exactly the same amount of information. I fixed this by sending in an extra option on the show page: `respond_with order, :expand => true`.
 
-{% highlight ruby %}
+```ruby
 class OrderSerializer < ActiveModel::Serializer
   attributes :email, :extra_info
 
@@ -74,4 +74,4 @@ class OrderSerializer < ActiveModel::Serializer
     end
   end
 end
-{% endhighlight %}
+```

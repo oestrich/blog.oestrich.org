@@ -16,13 +16,13 @@ Inside the new `values` folder create `strings.xml` and add the new `app_name` v
 
 ##### app/src/debug/res/values/strings.xml
 
-{% highlight xml %}
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
   <string name="app_name">MyApp Debug</string>
 
 </resources>
-{% endhighlight %}
+```
 
 Now when you install the new debug only application it will have a new name to distinguish between the various release types!

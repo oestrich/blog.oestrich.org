@@ -9,7 +9,7 @@ title: Using the New Google Play Service API
 
 I recently got to use the new `FusedLocationApi` from Google Play Services on Android. This is something I have tried in the past, but all of the Android documentation refers to the deprecated `LocationClient`. I wanted to figure out how to use the new API so I did not need to update this project again.
 
-``` java
+```java
 public class MainActivity extends Activity implements
   GoogleApiClient.ConnectionCallbacks,
   GoogleApiClient.OnConnectionFailedListener {
@@ -61,7 +61,7 @@ public class MainActivity extends Activity implements
 
 This starts by creating a `GoogleApiClient` and setting connection callbacks to the activity. Once the `GoogleApiClient` is connected it calls `onConnected` and we enable the button that will start tracking location. I used the `IntentService` of receiving updates for this as it was simpler and worked for what I wanted. We create a `LocationRequest` whenever the button is pressed and ask for updates every second for 60 seconds.
 
-``` java
+```java
 public class LocationUpdateService extends IntentService {
   public LocationUpdateService() {
     super("LocationUpdateService");

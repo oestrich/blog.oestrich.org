@@ -15,7 +15,7 @@ Before we get started, this is a `prefix` autocompletion. So if you search for `
 
 ##### PersonIndex
 
-``` ruby
+```ruby
 class PersonIndex < Chewey::Index
   define_type Person do
     field :first_name
@@ -49,7 +49,7 @@ We also define `type` as `completion` and let elasticsearch know that this field
 
 ##### Suggestions
 
-``` ruby
+```ruby
 PersonIndex.suggest({
   suggest: {
     text: "Eri",
@@ -69,7 +69,7 @@ Inside the top level key you pass in the text you want to complete against along
 
 ##### Suggestion JSON
 
-``` json
+```json
 {
    "_shards": {
       "total": 5,

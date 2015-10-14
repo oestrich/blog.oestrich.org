@@ -11,7 +11,7 @@ Being able to have the same application installed for both development and the r
 
 ##### app/build.gradle
 
-{% highlight groovy %}
+```groovy
 android {
   // ...
 
@@ -23,4 +23,4 @@ android {
   }
 
   // ...
-{% endhighlight %}
+```

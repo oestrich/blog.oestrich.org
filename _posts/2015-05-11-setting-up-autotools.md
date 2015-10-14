@@ -31,7 +31,7 @@ For a while I have wanted to start learning C, but I have always been daunted by
 
 ##### autogen.sh
 
-``` bash
+```bash
 #!/bin/sh
 # Run this to generate all the initial makefiles, etc.
 set -e
@@ -43,7 +43,7 @@ I run this script after checking out the project on a new machine. Autotools wil
 
 ##### configure.ac
 
-``` bash
+```bash
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
@@ -80,7 +80,7 @@ AC_CHECK_LIB([glib-2.0], [g_free])
 
 ##### Makefile.am
 
-``` bash
+```bash
 SUBDIRS=src
 ```
 
@@ -88,7 +88,7 @@ This sets up automake to look in the `src` subfolder. Most of the work will happ
 
 ##### src/Makefile.am
 
-``` bash
+```bash
 bin_PROGRAMS = prog
 prog_CFLAGS = # `pkg-config --cflags glib-2.0`
 prog_LDFLAGS = # `pkg-config --libs glib-2.0`
@@ -101,7 +101,7 @@ prog_SOURCES = main.c # list out all source files
 
 Once these files are in place you will be able to clone the repo, and within a few simple commands be compiling your project. Below is the full set of commands it takes.
 
-``` bash
+```bash
 $ git clone $GIT_REPO git_repo
 $ cd git_repo
 $ ./autogen.sh

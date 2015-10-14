@@ -14,7 +14,7 @@ When a job starts it immediately creates a `JobRun` which logs the start time, w
 
 Below is the general layout of our worker classes.
 
-{% highlight ruby %}
+```ruby
 class MyWorker < AppWorker
   include Sidekiq::Worker
 
@@ -28,7 +28,7 @@ class MyWorker < AppWorker
     finish_perform!
   end
 end
-{% endhighlight %}
+```
 
 The app has an admin panel that lets us easily view each job run as it's happening. This way you can see and have a record of what the system did and how many times a job failed.
 

@@ -13,7 +13,7 @@ One nice thing I want to point out is that I'm passing in a redis instance, in t
 
 To define new attributes you use the `attribute` class method. It lets you set a default adn a type. The type is only special for `:integer` at the moment, but it's not hard to add more.
 
-{% highlight ruby %}
+```ruby
 class Configuration
   extend ActiveModel::Naming
   include ActiveModel::Conversion
@@ -90,11 +90,11 @@ class Configuration
     end
   end
 end
-{% endhighlight %}
+```
 
 To use it:
 
-{% highlight ruby %}
+```ruby
 config = Configuration.new
 config.timeout
 # => 1500
@@ -109,4 +109,4 @@ config.timeout
 config.update("timeout" => 1000)
 config.timeout
 # => 1000
-{% endhighlight %}
+```

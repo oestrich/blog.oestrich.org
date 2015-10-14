@@ -24,7 +24,7 @@ This is the command I used for cron, it sets up the environment for rbenv.
     0 0 * * * /bin/bash -c 'PATH=/opt/rbenv/shims:/opt/rbenv/bin:$PATH RBENV_ROOT=/opt/rbenv ruby /home/deploy/pg-to-s3/backup.rb'
 
 ##### backup.rb
-{% highlight ruby %}
+```ruby
 #!/usr/bin/env ruby
 require 'time'
 require 'aws-sdk'
@@ -73,4 +73,4 @@ end
 objects.each do |object|
   object.delete
 end
-{% endhighlight %}
+```

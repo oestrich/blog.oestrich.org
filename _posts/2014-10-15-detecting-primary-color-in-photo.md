@@ -12,7 +12,7 @@ This [sidekiq][sidekiq] worker detects the "best" primary color of the photo, sk
 
 This uses the `convert` imagemagick command to find the color histogram and sorts it by most used color. It then strips out "bad" colors to find the most common color we can use.
 
-{% highlight ruby %}
+```ruby
 class ProcessPhotoWorker
   include Sidekiq::Worker
 
@@ -105,7 +105,7 @@ class ProcessPhotoWorker
     end
   end
 end
-{% endhighlight %}
+```
 
 [smartlogic]: http://smartlogic.io
 [sidekiq]: https://github.com/mperham/sidekiq

@@ -9,7 +9,7 @@ When using a Cursor in Android I prefer to pull out a row into a Java object. Th
 
 This method will pull out columns into the appropriate member variable. It will only pull out a column if it is in the selected columns.
 
-{% highlight java %}
+```java
 public class MyModel {
     public static MyModel fromCursor(Cursor cursor) {
         MyModel myModel = new MyModel();
@@ -27,4 +27,4 @@ public class MyModel {
         return myModel;
     }
 }
-{% endhighlight %}
+```

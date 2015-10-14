@@ -13,15 +13,15 @@ Up until now I haven't had to make a hypermedia client in anything but ruby. In 
 Below are my java objects that [Jackson](https://github.com/FasterXML/jackson-core) parses into.
 
 ##### Link
-{% highlight java %}
+```java
 public class Link {
     @JsonProperty("href")
     public String href;
 }
-{% endhighlight %}
+```
 
 ##### HalRoot
-{% highlight java %}
+```java
 public class HalRoot {
     @JsonProperty("_links")
     protected RootLinks links;
@@ -41,10 +41,10 @@ public class HalRoot {
         Link orders;
     }
 }
-{% endhighlight %}
+```
 
 ##### HalOrders
-{% highlight java %}
+```java
 public class HalOrders {
     @JsonProperty("_embedded")
     protected Embedded embedded;
@@ -66,10 +66,10 @@ public class HalOrders {
         Link self;
     }
 }
-{% endhighlight %}
+```
 
 ##### HalOrder
-{% highlight java %}
+```java
 public class HalOrder {
     @JsonProperty("_embedded")
     protected Embedded embedded;
@@ -101,12 +101,12 @@ public class HalOrder {
         Link items;
     }
 }
-{% endhighlight %}
+```
 
 ##### HalItem
-{% highlight java %}
+```java
 public class HalItem {
     @JsonProperty("name")
     public String name;
 }
-{% endhighlight %}
+```

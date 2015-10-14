@@ -8,20 +8,20 @@ title: Trying out WebMachine
 
 Yesterday I tried out [webmachine-ruby](https://github.com/seancribbs/webmachine-ruby). Overall it left a good impression on me. One thing I really liked was the separation of a single resource and a collection resource.
 
-{% highlight ruby %}
+```ruby
 App = Webmachine::Application.new do |app|
   app.routes do
     add ["orders"], OrdersResource
     add ["orders", :id], OrderResource
   end
 end
-{% endhighlight %}
+```
 
 Any call to "/orders" will go to the OrdersResource, since you're acting on a collection, and any call with an "id" in it will go to the single resource.
 
 I also really liked the idea of callbacks on a resource. To point out one, in order to get a resource to respond to a certain method, you add it to the `#allowed_methods`:
 
-{% highlight ruby %}
+```ruby
 class OrderResource 
   def allowed_methods
     ["GET", "POST"]
@@ -31,7 +31,7 @@ class OrderResource
     [["application/json", :to_json]]
   end
 end
-{% endhighlight %}
+```
 
 The `#content_types_provided` callback will call `#to_json` if it sees "application/json".
 
@@ -39,7 +39,7 @@ One pretty big issue I faced was a lack of examples on how to use its statemachi
 
 My resulting example app is [here](https://gist.github.com/3638605) as a gist and I've embedded the main app file.
 
-{% highlight ruby %}
+```ruby
 require 'webmachine'
 require 'webmachine/adapters/rack'
 require 'json'
@@ -159,4 +159,4 @@ App = Webmachine::Application.new do |app|
     add ['trace', '*'], Webmachine::Trace::TraceResource
   end
 end
-{% endhighlight %}
+```

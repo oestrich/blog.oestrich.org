@@ -17,7 +17,7 @@ This is the code I used to speed up OAuth and inspect the third party app's API.
 [gist](https://gist.github.com/30350e793bc7900aa952)
 
 ##### server.rb
-{% highlight ruby %}
+```ruby
 require 'sinatra'
 require 'json'
 require 'faraday'
@@ -100,7 +100,7 @@ get "/*" do
   response_body = client.get(url).body
   JSON.pretty_generate(JSON.parse(response_body))
 end
-{% endhighlight %}
+```
 
 How do you handle OAuth without [cURLin'](http://blog.smartlogicsolutions.com/2012/07/12/curlin-for-docs/) all day long? Comment and let us know.
 

@@ -13,7 +13,7 @@ I ended up creating a module that you can include into a class which will instru
 It's available in this [gist](https://gist.github.com/4072523), but I've also included it below.
 
 ##### lib/notifications.rb
-{% highlight ruby %}
+```ruby
 module Notifications
   extend ActiveSupport::Concern
 
@@ -34,18 +34,18 @@ module Notifications
     end
   end
 end
-{% endhighlight %}
+```
 
 You also need to set up something that will log the instruments so you can see them.
 
 ##### config/initializers/notifications.rb
-{% highlight ruby %}
+```ruby
 ActiveSupport::Notifications.subscribe(/my_class$/) do |*args|
   event = ActiveSupport::Notifications::Event.new(*args)
 
   Rails.logger.warn "%7.2fms %s" % [event.duration, event.name]
 end
-{% endhighlight %}
+```
 
 ### Resources
 1. [ActiveSupport::Notifications](http://api.rubyonrails.org/classes/ActiveSupport/Notifications.html)

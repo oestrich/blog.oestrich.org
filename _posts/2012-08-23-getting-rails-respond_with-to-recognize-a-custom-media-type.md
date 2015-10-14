@@ -11,17 +11,17 @@ I am writing a sample hypermedia API in Rails, [here](https://github.com/oestric
 I ended up having to override respond_with to make it understand the HAL format. Not exactly what I hoped for, but it works.
 
 ##### config/initializers/mime_types.rb
-{% highlight ruby %}
+```ruby
 Mime::Type.register "application/hal+json", :hal
 
 ActionDispatch::ParamsParser::DEFAULT_PARSERS[Mime::Type.lookup('application/hal+json')] = 
   lambda do |body|
     JSON.parse(body)
   end
-{% endhighlight %}
+```
 
 ##### app/controllers/application_controller.rb<
-{% highlight ruby %}
+```ruby
 class ApplicationController < ActionController::Base
   ...
 
@@ -34,21 +34,21 @@ class ApplicationController < ActionController::Base
     end
   end
 end
-{% endhighlight %}
+```
 
 ##### app/controllers/home_controller.rb
-{% highlight ruby %}
+```ruby
 HomeController < ApplicationController
   respond_to :hal
 
   ...
 end
-{% endhighlight %}
+```
 
 This method doesn't give the benefit of auto status codes based on the HTTP verb. I did however get a monkey patch to work:
 
 ##### config/initializers/monkey_patching.rb
-{% highlight ruby %}
+```ruby
 module ActionController
   class Responder
     def to_hal
@@ -57,7 +57,7 @@ module ActionController
     end
   end
 end
-{% endhighlight %}
+```
 
 The overload of respond_with is now no longer necessary, but we're accessing a protected method.
 

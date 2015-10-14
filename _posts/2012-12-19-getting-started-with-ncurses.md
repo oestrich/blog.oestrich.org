@@ -11,30 +11,30 @@ I have been writing an ncurses campfire client [hobostove](http://github.com/sma
 Hobostove uses the [ncurses-ruby](https://github.com/eclubb/ncurses-ruby) gem. It's pretty old but so is Ncurses. Here I'll give the basics of setting up, refreshing, and tearing down. I'll do a panel usage post later.
 
 ##### Initialization
-{% highlight ruby %}
+```ruby
 Ncurses.initscr
 Ncurses.cbreak
 Ncurses.noecho
-{% endhighlight %}
+```
 
 - `Ncurses.initscr` - sets up Ncurses
 - `Ncurses.cbreak` - don't wait for a new line to send characters to `Ncurses.getch`
 - `Ncurses.noecho` - don't echo typed characters to the screen
 
 ##### Update
-{% highlight ruby %}
+```ruby
 Ncurses.doupdate
 Ncurses.refresh
-{% endhighlight %}
+```
 
 - `Ncurses.doupdate` - compares the virtual screen to the physical screen and updates accordingly
 - `Ncurses.refresh` - writes to the terminal
 
 ##### Tear down
-{% highlight ruby %}
+```ruby
 Ncurses.echo
 Ncurses.endwin
-{% endhighlight %}
+```
 
 - `Ncurses.echo` - echos characters back to the screen
 - `Ncurses.endwin` - stops ncurses

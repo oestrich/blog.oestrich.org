@@ -13,28 +13,28 @@ Below is what I came up with. It is also hosted on  [github][faraday_json_pointe
 
 This code will take the following JSON:
 
-{% highlight json %}
+```json
 {
   "name": "/first_name",
   "first_name": "Eric",
 }
-{% endhighlight %}
+```
 
 And convert it into:
 
-{% highlight json %}
+```json
 {
   "name": "Eric",
   "first_name": "Eric",
 }
-{% endhighlight %}
+```
 
 It even allows deep linking of attributes.
 
 
 ##### json_faraday_middleware.rb
 
-{% highlight ruby %}
+```ruby
 require 'faraday'
 require 'json'
 
@@ -95,7 +95,7 @@ class JsonPointerMiddleware < Faraday::Middleware
     end
   end
 end
-{% endhighlight %}
+```
 
 [rubydcamp]: http://rubydcamp.org/
 [hyperjson]: https://github.com/hypergroup/hyper-json

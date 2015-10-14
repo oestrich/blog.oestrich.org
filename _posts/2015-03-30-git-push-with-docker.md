@@ -28,7 +28,7 @@ The `repo` folder contains a bare git repository that git clients will push to s
 
 When a git client pushes to the server a `post-receive` hook is called. This is the script. The script is located at `repo/hooks/post-receive` and needs to be executable by the deploy user.
 
-``` bash
+```bash
 APP_PATH=/home/deploy/apps/project
 DOCKER_TAG="registry.example.com/project/web"
 
@@ -63,7 +63,7 @@ Once built and pushed to the docker registry, I pull the new docker image on the
 
 For the project docker file [see my post on running a rails app in docker]({% post_url 2015-02-11-docker-raspberry-pi-images %}) for a full explanation. Below is just the project `Dockerfile`.
 
-``` docker
+```docker
 FROM oestrich/base-pi-web
 MAINTAINER Eric Oestrich <eric@oestrich.org>
 

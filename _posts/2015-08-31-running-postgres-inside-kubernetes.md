@@ -16,7 +16,7 @@ In researching this I found out kubernetes has a persistence manager that lets y
 
 ## Create the disk
 
-``` bash
+```bash
 gcloud compute disks create pg-data-disk --size 50GB
 ```
 
@@ -24,13 +24,13 @@ Make sure this will be in the same zone as the cluster.
 
 Next attach the disk to an already running instance, possibly a new instance. We only need to temporarily attach the disk so we can format it.
 
-``` bash
+```bash
 gcloud compute instances attach-disk pg-disk-formatter --disk pg-data-disk
 ```
 
 After the disk is attached, ssh into the instance and run the following commands. This will mount and then format the disk with ext4. Then we unmount the drive.
 
-``` bash
+```bash
 sudo /usr/share/google/safe_format_and_mount -m "mkfs.ext4 -F" /dev/sdb /media/pg-data/
 sudo umount /media/pg-data/
 ```
@@ -45,7 +45,7 @@ With all of this complete we can start on the kubernetes side. Create the follow
 
 ##### postgres-persistence.yml
 
-``` yaml
+```yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -66,7 +66,7 @@ This creates a persistent volume that pods can mount. Set it up with the same in
 
 ##### postgres-claim.yml
 
-``` yaml
+```yaml
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
@@ -83,7 +83,7 @@ This creates a claim on the persistent volume that pods will use to attach the v
 
 ##### postgres-pod.yml
 
-``` yaml
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -114,7 +114,7 @@ There are a few important features of this file. We use the persistent claim in 
 
 ##### postgres-service.yml
 
-``` yaml
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -132,7 +132,7 @@ This creates a service to easily access the postgres pod from other pods in the 
 
 ## Create resources on Kubernetes
 
-``` bash
+```bash
 kubectl create -f postgres-persistence.yml
 kubectl create -f postgres-claim.yml
 kubectl create -f postgres-pod.yml

@@ -13,7 +13,7 @@ For [SmartChat](http://github.com/smartlogic/smartchat-api) we used [SQS](http:/
 The SQS interface that we used was very simple. It has two methods that were used, `#send_messsage` and `#poll`. With this we can make a redis version.
 
 ##### redis_queue.rb
-{% highlight ruby %}
+```ruby
 require 'redis'
 
 RedisMessage = Struct.new(:body)
@@ -37,12 +37,12 @@ class RedisQueue
     @redis.lpush("smartchat-queue", message_json)
   end
 end
-{% endhighlight %}
+```
 
 To use this, we have a `AppContainer` switch to it for development purposes and use it normally.
 
 ##### config/initializers/app_container.rb
-{% highlight ruby %}
+```ruby
 #...
 let(:queue) do
   if Rails.env.development? || Rails.env.all?
@@ -53,16 +53,16 @@ let(:queue) do
   end
 end
 #...
-{% endhighlight %}
+```
 
 ##### libexec/smartchat-daemon.rb
-{% highlight ruby %}
+```ruby
 AppContainer.queue.poll do |msg|
   body = JSON.parse(msg.body)
 
   # do work
 end
-{% endhighlight %}
+```
 
 ## Related files
 - [redis_queue.rb](https://github.com/smartlogic/smartchat-api/blob/master/worker/lib/redis_queue.rb)

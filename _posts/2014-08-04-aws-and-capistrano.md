@@ -21,7 +21,7 @@ In the deploy script for production we can now use the AWS SDK to pull your inst
 Dotenv is used because AWS keys are stored in `.env` and capistrano won't load that normally.
 
 ##### config/deploy/production.md
-{% highlight ruby %}
+```ruby
 require 'aws-sdk'
 require 'dotenv'
 Dotenv.load
@@ -49,4 +49,4 @@ ec2.instances.tagged("Type").tagged_values("scheduler").each do |instance|
   next unless instance.status == :running
   server instance.public_dns_name, :scheduler, :app
 end
-{% endhighlight %}
+```

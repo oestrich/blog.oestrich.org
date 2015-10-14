@@ -13,7 +13,7 @@ I made it look similar to the [nerdword-api](https://github.com/smartlogic/nerdw
 
 Below is the code required:
 
-{% highlight ruby %}
+```ruby
 #!/usr/bin/env ruby
 
 require File.expand_path('../config/environment',  __FILE__)
@@ -27,4 +27,4 @@ end
 
 server = Capybara::Server.new(Rails.application, 8888)
 server.boot
-{% endhighlight %}
+```

@@ -11,7 +11,7 @@ Last week SmartLogic had an internal conference where I gave a presentation on h
 
 I used the [frenetic](https://github.com/dlindahl/frenetic) gem to create my hal client. It's pretty verbose currently and let's just gloss over all those periods. It's a nice starting point for a HAL api.
 
-{% highlight ruby %}
+```ruby
 require 'frenetic'
 
 MyAPI = Frenetic.new({
@@ -34,7 +34,7 @@ class Order < Frenetic::Resource
 end
 
 p Order.orders
-{% endhighlight %}
+```
 
 #### Resources
 * [presentation](http://oestri.ch/presentations/intro-hypermedia)

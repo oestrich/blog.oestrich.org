@@ -16,7 +16,7 @@ To manage this I wrote a simple script that converts a secrets folder into an en
 
 ##### env.rb
 
-``` ruby
+```ruby
 env = {}
 
 Dir["#{ARGV[1]}/*"].each do |file|
@@ -32,7 +32,7 @@ File.open(ARGV[0], "w") do |file|
 end
 ```
 
-``` bash
+```bash
 ruby env.rb .env /etc/etc
 ```
 
@@ -44,7 +44,7 @@ To create the secret you upload the following YAML to kubernetes. Once the secre
 
 ##### secrets.yml
 
-``` yaml
+```yaml
 apiVersion: "v1"
 kind: "Secret"
 metadata:
@@ -55,7 +55,7 @@ data:
   rails-serve-static-files: dHJ1ZQ==
 ```
 
-``` bash
+```bash
 kubectl create -f secrets.yml
 ```
 
@@ -63,7 +63,7 @@ This file creates the secret `app-env`. Values are base 64 encoded.
 
 ##### app-controller.yml
 
-``` yaml
+```yaml
 apiVersion: v1
 kind: ReplicationController
 metadata:
@@ -101,13 +101,13 @@ This replication controller mounts the secret into `/etc/env`.
 
 To use the new script in your `Dockerfile` change the entrypoint to:
 
-``` docker
+```docker
 ENTRYPOINT ["./foreman.sh"]
 ```
 
 With `foreman.sh` as:
 
-``` bash
+```bash
 #!/bin/bash
 ruby env.rb .env /etc/env && foreman start ${BASH_ARGV[0]}
 ```

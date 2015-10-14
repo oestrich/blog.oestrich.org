@@ -12,11 +12,11 @@ We're in the process of splitting out a fairly large rails app that contains ver
 As we split out the multiple apps, some commits were bound to be missed because others continued working in the main repo. After doing a bit of searching I found that there was a nice way to import these commits via `cherry-pick`.
 
 <br class="clear" />
-{% highlight bash %}
+```bash
 git remote add other-repo ../other-repo/
 git fetch other-repo
 git cherry-pick cf0dbfe3c63ab0f49bb8fa97d3b28bb0bd9eb896
-{% endhighlight %}
+```
 
 I've ended up using this trick several times this week and it's turned out to be an excellent time saver.
 

@@ -13,25 +13,25 @@ Sidetiq very simply starts running inside the [sidekiq][sidekiq] process by usin
 
 Launching your process inside of sidekiq is easy.
 
-{% highlight ruby %}
+```ruby
 if Sidekiq.server?
   MySupervisor.run!
 end
-{% endhighlight %}
+```
 
 A supervisor simply keeps celluloid actors going if they die. See [supervisors][celluloid-supervisors] for more information. My supervisor looked like:
 
-{% highlight ruby %}
+```ruby
 class MySupervisor < Celluloid::SupervisionGroup
   supervise CelluloidActor, :as => :actor
   supervise OtherCelluloidActor, :as => :other_actor
   supervise Orchestrator, :as => :orchestrator
 end
-{% endhighlight %}
+```
 
 I created an orchestrator actor that does all of the main work for me. It looks at redis and pops messages off a queue as they are entered.
 
-{% highlight ruby %}
+```ruby
 class RemoteOrchestrator
   include Celluloid
   include Celluloid::Logger
@@ -79,7 +79,7 @@ class RemoteOrchestrator
     @redis_pool
   end
 end
-{% endhighlight %}
+```
 
 The important part about this class is the `after(1)` call. It queues the block to run in 1 second, which puts it in the background. The actor also loops itself by sending another `loop!` message async at the end of `loop!`. This makes sure it will continuing running.
 

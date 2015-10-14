@@ -15,7 +15,7 @@ What I came up with was what I referred to as "remote" faraday. The faraday conn
 
 I have classes that handle each API for two specific needs, searching for items and viewing a single item. A sample for BoardGameGeek is below.
 
-{% highlight ruby %}
+```ruby
 class BGG
   def search(board_game_name)
     response = remote_faraday.
@@ -37,13 +37,13 @@ class BGG
     @remote_faraday ||= RemoteFaraday.new
   end
 end
-{% endhighlight %}
+```
 
 There's not much difference here from a regular faraday connection and my "remote" connection. This was nice because this class shouldn't care about the change.
 
 Here is what the RemoteFaraday class looks like:
 
-{% highlight ruby %}
+```ruby
 class RemoteFaraday
   MAX_LOOPS = 200 # a minute or so of waiting
 
@@ -93,7 +93,7 @@ class RemoteFaraday
     "#{client}:response:#{method}:#{path}:#{uuid}"
   end
 end
-{% endhighlight %}
+```
 
 The class takes a redis pool and UUID generator from an application container. The UUID is used to make sure each request is saved uniquely inside of redis. We don't want to overwrite a different request/response.
 
@@ -103,7 +103,7 @@ This class only handles `GET`s at the moment because I haven't needed to use any
 
 The other end of the queue is the `RemoteOrchestrator` that was seen in the previous post. Here is the full one.
 
-{% highlight ruby %}
+```ruby
 class RemoteOrchestrator
   include Celluloid
   include Celluloid::Logger
@@ -150,13 +150,13 @@ class RemoteOrchestrator
     @redis_pool
   end
 end
-{% endhighlight %}
+```
 
 This is virtually the same as what I put in the last post. The `#loop!` method calls itself after each message or breaking from a timeouted `brpop`.
 
 Below is the `RemoteConnection` class that uses faraday to connect to an API.
 
-{% highlight ruby %}
+```ruby
 class RemoteConnection
   include Celluloid
   include Celluloid::Logger
@@ -193,13 +193,13 @@ class RemoteConnection
     @connection ||= Faraday.new(host)
   end
 end
-{% endhighlight %}
+```
 
 The important bit in the previous class is `exclusive`. This is a celluloid directive that makes sure only 1 worker ever runs what is inside of the block. Since the entire method is inside the block only 1 connection will happen.
 
 Below is a specific subclass for BoardGameGeek.
 
-{% highlight ruby %}
+```ruby
 class RemoteBGG < RemoteConnection
   def host
     "http://boardgamegeek.com"
@@ -209,7 +209,7 @@ class RemoteBGG < RemoteConnection
     :bgg
   end
 end
-{% endhighlight %}
+```
 
 This was a fun little project that has let me speed up my sidekiq jobs since I no longer needed to arbitrarily wait 10 seconds in between jobs. I've thought about making this into a gem, but I haven't had a reason to yet. I'm also not sure how useful it would be as a gem.
 

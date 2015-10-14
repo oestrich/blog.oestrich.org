@@ -21,9 +21,9 @@ Before attending REST Fest, I didn't know that if you create a short link relati
 
 An example from the Helpdesk Hackday at REST Fest:
 
-{% highlight xml %}
+```xml
 <atom:link rel="http://helpdesk.hackday.2012.restfest.org/rels/ticket" href="http://.../tickets/9172361" type="application/vnd.org.restfest.2012.hackday+xml" />
-{% endhighlight %}
+```
 
 In the same vein as registering link relations, I didn't know you were supposed to register media types. The HTTP spec calls for them to be registered in [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.7). Here's the gist: "Media-type values are registered with the Internet Assigned Number Authority (IANA [19]). The media type registration process is outlined in RFC 1590 [17]. Use of non-registered media types is discouraged."
 

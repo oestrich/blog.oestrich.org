@@ -8,7 +8,7 @@ title: Using the LoaderManager
 
 The LoaderManager is a nice way of handling Cursors in an Android activity or fragment. It was a little tricky to get started with so I wanted to have an example I could come back to as a reference of how to use it.
 
-{% highlight java %}
+```java
 public class FirmInfoActivity extends Activity implements
     LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -62,4 +62,4 @@ public class FirmInfoActivity extends Activity implements
         }
     }
 }
-{% endhighlight %}
+```

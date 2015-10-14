@@ -13,7 +13,7 @@ One good feature about this is that it yields items as it goes instead of collec
 
 I also like that you can completely ignore the HTTP interactions and just deal with regular ruby `Enumerable` methods.
 
-{% highlight ruby %}
+```ruby
 class Pager < Struct.new(:client, :path, :json_key)
   include Enumerable
 
@@ -38,4 +38,4 @@ class Pager < Struct.new(:client, :path, :json_key)
     end
   end
 end
-{% endhighlight %}
+```

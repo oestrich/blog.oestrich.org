@@ -8,7 +8,7 @@ title: Using Android's UriMatcher
 
 When setting up a `ContentProvider`, I didn't really see any good explanation of how to use the `UriMatcher` class. Here is a small example of it in a `ContentProvider`.
 
-{% highlight java %}
+```java
 public class MyProvider extends ContentProvider {
   private static final int ORDERS = 1;
   private static final int ORDERS_ID = 2;
@@ -81,4 +81,4 @@ public class MyProvider extends ContentProvider {
     return cursor;
   }
 }
-{% endhighlight %}
+```

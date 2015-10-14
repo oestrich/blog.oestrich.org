@@ -10,7 +10,7 @@ As part of my Raspberry Pi cluster (aka "bramble" as I found out recently) I hav
 
 ##### oestrich/nginx-pi
 
-``` docker
+```docker
 FROM oestrich/arch-pi
 MAINTAINER Eric Oestrich "eric@oestrich.org"
 
@@ -33,7 +33,7 @@ This starts with the base nginx container, which I took from [here](https://gith
 
 ##### nginx Dockerfile
 
-``` docker
+```docker
 FROM oestrich/nginx-pi
 MAINTAINER Eric Oestrich "eric@oestrich.org"
 
@@ -49,7 +49,7 @@ There are two folders and a file that gets added in. `/etc/nginx/ssl` contains a
 
 ##### nginx.conf
 
-``` nginx
+```nginx
 user root;
 worker_processes  2;
 
@@ -82,7 +82,7 @@ This is a pretty simple `nginx.conf` file. I added in my [ssl configuration](htt
 
 ##### sites/example.com
 
-``` nginx
+```nginx
 upstream website {
   server docker01:5000;
 }
@@ -122,7 +122,7 @@ Once all of this is set up you build the container and push it to a private repo
 
 ##### nginx.service
 
-``` docker
+```docker
 Description=nginx
 Requires=docker.service
 After=docker.service

@@ -14,7 +14,7 @@ At work we've been doing a project that finally lets me use something past Java 
 
 Yesterday I started using streams and I really dig it. They feel very similar to ruby's `Enumerable` methods. Lambdas get pulled into this because if you use streams you kinda have to use lambdas to get the full use of them.
 
-``` java
+```java
 List<Character> characters
 List<String> names = characters.stream()
   .map(character -> character.getName())
@@ -27,7 +27,7 @@ This may still seem longer than doing it in ruby, but compared to what it used t
 
 This doesn't seem like that great of a thing, and may not be the best way to use a switch statement, but trust me it is. After coming from ruby where you can put anything in a case state, needing to use a big blob of if statements if you had a string was super annoying. 
 
-``` java
+```java
 switch (value) {
   case "hello":
     System.out.println("Hello");

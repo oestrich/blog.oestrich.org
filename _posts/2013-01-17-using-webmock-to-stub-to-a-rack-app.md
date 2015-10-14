@@ -12,16 +12,16 @@ I have been integrating with outside services recently and decided to use webmoc
 You just have to call `#to_rack` at the end of a `stub_request` instead of `#to_return`. In the rack app you can also validate that the requests you are sending contain the correct headers, are authenticated correctly, etc.
 
 ##### spec/spec_helper.rb
-{% highlight ruby %}
+```ruby
 RSpec.configure do |config|
   config.before do
     stub_request(:any, /outsideservice\.com/).to_rack(OutsideServiceApp.new)
   end
 end
-{% endhighlight %}
+```
 
 ##### spec/support/outside_service_app.rb
-{% highlight ruby %}
+```ruby
 class OutsideServiceApp
   def call(env)
     validate_request(env)
@@ -36,13 +36,13 @@ class OutsideServiceApp
 
   ...
 end
-{% endhighlight %}
+```
 
 ##### spec/outside_service_caller_spec.rb
-{% highlight ruby %}
+```ruby
 describe OutsideServceCaller do
   it "should load orders" do
     OutsideServiceCaller.orders.should == File.read("spec/fixtures/orders.json")
   end
 end
-{% endhighlight %}
+```

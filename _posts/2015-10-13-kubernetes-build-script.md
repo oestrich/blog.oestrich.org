@@ -12,7 +12,7 @@ We've so far seen how to put postgres inside of Kubernetes, here is how I was ab
 
 ## Build Docker Image
 
-``` bash
+```bash
 build_dir=`mktemp -d`
 git archive master | tar -x -C $build_dir
 echo $build_dir
@@ -29,7 +29,7 @@ It also pushes the image up tagged as the git sha. This lets us make sure we're 
 
 ## Optionally migrate
 
-``` bash
+```bash
 docker tag -f $docker_image "$docker_image:migration"
 gcloud docker push "$docker_image:migration"
 kubectl create -f config/kubernetes/migration-pod.yml
@@ -50,7 +50,7 @@ This section is done with a switch `-m`. It pushes to a special tag named `migra
 
 ##### config/kubernetes/migration-pod.yml
 
-``` yaml
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -76,7 +76,7 @@ spec:
 
 ## Update Replication Controllers
 
-``` bash
+```bash
 kubectl rolling-update app-web --image=$docker_tag --update-period="10s"
 kubectl rolling-update app-worker --image=$docker_tag --update-period="10s"
 ```
@@ -89,7 +89,7 @@ I had to update how I was [loading secrets from last time][secrets]. I replaced 
 
 ##### env.sh
 
-``` bash
+```bash
 #!/bin/bash
 ruby env.rb .env /etc/env && source .env && $*
 ```
@@ -102,14 +102,14 @@ ruby env.rb .env /etc/env && source .env && foreman start web
 
 ##### Dockerfile
 
-``` docker
+```docker
 ENTRYPOINT ["./env.sh"]
 CMD ["foreman", "start", "web"]
 ```
 
 ## Full Script
 
-``` bash
+```bash
 #!/bin/bash
 set -e
 

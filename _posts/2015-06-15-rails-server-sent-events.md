@@ -13,7 +13,7 @@ I'm doing a fun side project and found a use case for Server Sent Events. I foun
 
 ##### events_controller.rb
 
-``` ruby
+```ruby
 class EventsController < ApplicationController
   include ActionController::Live
 
@@ -62,7 +62,7 @@ Events have two new lines after them to distinguish them from one another.
 
 To publish a new event:
 
-``` ruby
+```ruby
 redis.publish("event:#{user.id}", event.id)
 ```
 

@@ -15,7 +15,7 @@ For a side project at work we needed to get a simple SSL endpoint in front of [B
 
 This is taken from [ruby documentation][ruby-documentation] as it was the easiest way I found to generate a root certificate.
 
-``` ruby
+```ruby
 require 'openssl'
 
 root_key = OpenSSL::PKey::RSA.new 2048 # the CA's public/private key
@@ -74,7 +74,7 @@ end
 
 ##### Dockerfile
 
-``` docker
+```docker
 FROM nginx
 ADD ssl /etc/nginx/ssl
 ADD sites /etc/nginx/sites
@@ -85,7 +85,7 @@ This is my normal nginx setup. Nothing special here.
 
 ##### siites/bosun.conf
 
-``` nginx
+```nginx
 upstream bosun {
   server 192.168.1.1:5000;
 }
@@ -117,14 +117,14 @@ In this, the only thing that needs to specially pointed out is the `upstream` ne
 
 ## Build and Start Nginx
 
-``` bash
+```bash
 docker build -t nginx-ssl .
 docker run -t -i -p 4443:443 nginx-ssl
 ```
 
 ## Connecting via Faraday
 
-``` ruby
+```ruby
 require 'faraday'
 require 'json'
 require 'openssl'

@@ -14,7 +14,7 @@ I learned several Android tips the other day from an unlikely place: `File->New 
 This is possible by calling `setError` on the EditText.
 
 ##### LoginActivity.java - attemptLogin()
-{% highlight java %}
+```java
 // Check for a valid password.
 if (TextUtils.isEmpty(mPassword)) {
   mPasswordView.setError(getString(R.string.error_field_required));
@@ -25,14 +25,14 @@ if (TextUtils.isEmpty(mPassword)) {
   focusView = mPasswordView;
   cancel = true;
 }
-{% endhighlight %}
+```
 
 ### The merge view
 
 I'm still a little uncertain about this one, but after doing some searching it looks like you can speed up the display of your views if you use `merge`. [More info](http://android-developers.blogspot.com/2009/03/android-layout-tricks-3-optimize-by.html).
 
 ##### activity_login.xml
-{% highlight xml %}
+```xml
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
   tools:context=".LoginActivity" >
@@ -42,7 +42,7 @@ I'm still a little uncertain about this one, but after doing some searching it l
   <LinearLayout ... />
   <ScrollView ... />
 </merge>
-{% endhighlight %}
+```
 
 ### Value files can be layout specific
 
