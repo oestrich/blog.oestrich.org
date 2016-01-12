@@ -5,6 +5,7 @@ categories:
 - nginx
 - linux
 title: Hosting Your Own Kubernetes NodePort Load Balancer
+description: How to create a NodePort load balancer
 date: 2016-01-11 09:00 PM
 ---
 
