@@ -13,7 +13,7 @@ In my side project, [worfcam][worfcam], I host photos on [Google Cloud Storage][
 
 This is a cache layer above the [google-ruby-api-client][grac] gem.
 
-##### gcs_service_cacher.rb
+##### `gcs_service_cacher.rb`
 
 ```ruby
 class GcsServiceCacher
