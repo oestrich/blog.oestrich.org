@@ -72,8 +72,16 @@ I personally now prefer explicitly referring to a serializer I want to use on an
 
 These are all fairly minor pain points, but it has recently gotten me to thinking how I can make it better. In the next post I'll go over what I came up with.
 
+### Rethinking Rails API Serializations Series
+
+- [Part 1][part1]
+- [Part 2][part2]
+- Part 3
+
 [artifact]: https://www.discoverartifacts.com/
 [ams]: https://github.com/rails-api/active_model_serializers
 [cjson]: http://amundsen.com/media-types/collection/
 [restfest]: http://restfest.org/
 [cjsonams]: {% post_url 2015-09-29-active-model-serializers-collection-json %}
+[part1]: {% post_url 2016-03-21-rethinking-rails-api-serialization-part-1 %}
+[part2]: {% post_url 2016-03-22-rethinking-rails-api-serialization-part-2 %}
