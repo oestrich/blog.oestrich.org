@@ -105,7 +105,7 @@ Next post I'll show off how to use Nagare further.
 
 - [Part 1][part1]
 - [Part 2][part2]
-- Part 3
+- [Part 3][part3]
 
 [nagare]: https://github.com/oestrich/nagare
 [letter]: https://github.com/oestrich/letter
@@ -114,3 +114,4 @@ Next post I'll show off how to use Nagare further.
 [cjsonams]: {% post_url 2015-09-29-active-model-serializers-collection-json %}
 [part1]: {% post_url 2016-03-21-rethinking-rails-api-serialization-part-1 %}
 [part2]: {% post_url 2016-03-22-rethinking-rails-api-serialization-part-2 %}
+[part3]: {% post_url 2016-03-23-rethinking-rails-api-serialization-part-3 %}

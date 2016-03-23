@@ -76,7 +76,7 @@ These are all fairly minor pain points, but it has recently gotten me to thinkin
 
 - [Part 1][part1]
 - [Part 2][part2]
-- Part 3
+- [Part 3][part3]
 
 [artifact]: https://www.discoverartifacts.com/
 [ams]: https://github.com/rails-api/active_model_serializers
@@ -85,3 +85,4 @@ These are all fairly minor pain points, but it has recently gotten me to thinkin
 [cjsonams]: {% post_url 2015-09-29-active-model-serializers-collection-json %}
 [part1]: {% post_url 2016-03-21-rethinking-rails-api-serialization-part-1 %}
 [part2]: {% post_url 2016-03-22-rethinking-rails-api-serialization-part-2 %}
+[part3]: {% post_url 2016-03-23-rethinking-rails-api-serialization-part-3 %}
