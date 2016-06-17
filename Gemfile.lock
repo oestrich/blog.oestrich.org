@@ -68,3 +68,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll
+  redcarpet
+
+BUNDLED WITH
+   1.11.2
