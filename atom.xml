@@ -5,7 +5,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title>Eric's Devblog</title>
-  <link href="http://blog.oestrich.org/feed/" rel="self"/>
+  <link href="http://blog.oestrich.org/atom.xml" rel="self"/>
   <link href="http://blog.oestrich.org/"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
   <id>http://blog.oestrich.org/</id>
@@ -17,7 +17,7 @@
   {% for post in site.posts %}
   <entry>
     <title>{{ post.title | xml_escape }}</title>
-    <link href="http://blog.oestrich.org{{ post.url }}"/>
+    <link href="https://blog.oestrich.org{{ post.url }}"/>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
     <id>http://blog.oestrich.org{{ post.id }}</id>
     <content type="html">{{ post.content | xml_escape }}</content>
