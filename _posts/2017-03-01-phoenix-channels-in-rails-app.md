@@ -10,7 +10,7 @@ description: How to set up a small Phoenix app to bring channels into your Rails
 date: 2017-03-01 11:30PM
 ---
 
-My side project [Worfcam][worfcam] has a home page that lists the most recent photo taken from a device. It used to poll every 3 seconds for updates to the photos. I now use Phoenix channels to push new photos to the home page. This is how I did that.
+My side project [Worfcam][worfcam] has a home page that lists the most recent photo taken from a device. It used to poll every 3 seconds for updates to the photos. I now use Phoenix channels to push new photos to the home page. This is how I did that. I got part of the idea from [this blog post at akitonrails.com](http://www.akitaonrails.com/2015/12/09/ex-pusher-lite-part-1-phoenix-channels-and-rails-apps)
 
 Security note: it should be pointed out that this has very lax security as it trusts the rails process and elixir process are on the same machine and firewalled away from the world outside of connecting through nginx.
 
