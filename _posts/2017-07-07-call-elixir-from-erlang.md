@@ -4,7 +4,7 @@ categories:
 - elixir
 - erlang
 title: Call Elixir from Erlang
-description: See how simple it is to call Elixir from Erlang. This will also show calling Erlang from Elixir.
+description: See how simple it is to call Elixir from Erlang.
 date: 2017-07-07 2:30PM
 ---
 
