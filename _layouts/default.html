@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Eric's Devblog - {{ page.title }}</title>
+    {% if page.title %}
+    <title>{{ page.title }} - Eric's Devblog</title>
+    {% else %}
+    <title>Eric's Devblog</title>
+    {% endif %}
 
     <meta content="{{ site.title }}" property="og:site_name">
 

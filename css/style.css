@@ -267,3 +267,7 @@ img.float-img {
 .all-posts span {
   padding-right: 5px;
 }
+
+.post img {
+  max-width: 100%;
+}
