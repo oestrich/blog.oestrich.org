@@ -40,7 +40,7 @@ The even bigger feature is questing. NPCs can hand out quests as seen above in t
 
 You can see more about questing at [exventure.org][quests].
 
-![Handing out a quest](/images/exventure-2018-01-quest-handout.png)
+![Handing out a quest](/images/exventure-2018-01-quest-handout-1.png)
 
 Quests currently can require items or NPCs to be killed in order to trigger them. NPCs are tracked and counted when they are killed by a player. Items are removed when turning in the quest. Quests can also be in a quest chain, requiring parents to be completed before being offered children quests. This can create a linear story that helps move a player through an area.
 
