@@ -108,6 +108,10 @@ li {
   margin-bottom: 15px;
 }
 
+.center {
+  text-align: center;
+}
+
 img.float-img {
   float: right;
   padding-bottom: 20px;
