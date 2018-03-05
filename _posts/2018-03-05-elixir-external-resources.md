@@ -8,7 +8,7 @@ description: Showing how to use external resources in Elixir
 date: 2018-03-05 9:00AM EST
 ---
 
-The other week I started playing around with the `@external_resource` tag in Elixir. I wanted to do something similar to a translations file for the admin panel in [ExVenture][exventure-github] for help text. I didn't want to default to a YAML file as I've heard the elixir community isn't thrilled with it, so I took a look around to see what I could do.
+The other week I started playing around with the [@external_resource][elixir-docs] tag in Elixir. I wanted to do something similar to a translations file for the admin panel in [ExVenture][exventure-github] for help text. I didn't want to default to a YAML file as I've heard the elixir community isn't thrilled with it, so I took a look around to see what I could do.
 
 What I ended up with was a macro that could compile a text file into Elixir functions. It also live reloads with the Phoenix code reloader in development because of `@external_resource`, this is really cool to see working.
 
@@ -80,3 +80,4 @@ Lastly, you can check out more ExVenture at [exventure.org][exventure] and see m
 [exventure-github]: https://github.com/oestrich/ex_venture
 [midmud]: https://midmud.com
 [macro]: https://github.com/oestrich/ex_venture/blob/master/lib/ex_venture/text_compiler.ex
+[elixir-docs]: https://hexdocs.pm/elixir/Module.html#module-external_resource
