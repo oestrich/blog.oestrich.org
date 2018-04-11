@@ -9,9 +9,9 @@ image: /images/exventure-supervision-tree.jpg
 date: 2018-04-11 9:00AM EST
 ---
 
-I was watching [The Hitchhiker's Guide to the Unexpected][elixir-youtube] (YouTube link) by Fred Hebert and in that there is a neat excercise of writing out your supervision tree on a whiteboard and seeing how things would fail. With this you could better determine what happens to your application as things go wrong.
+I was watching [The Hitchhiker's Guide to the Unexpected][elixir-youtube] (YouTube link) by Fred Hebert and in that there is a neat exercise of writing out your supervision tree on a whiteboard and seeing how things would fail. With this you could better determine what happens to your application as things go wrong.
 
-I decided this would be a good excercise to do on [ExVenture][exventure-github]. This is a fairly long post that goes through the full supervision tree for ExVenture.
+I decided this would be a good exercise to do on [ExVenture][exventure-github]. This is a fairly long post that goes through the full supervision tree for ExVenture.
 
 You can see ExVenture in action on [MidMUD][midmud].
 
@@ -77,11 +77,11 @@ The sibling supervisors are also a `one_for_one` strategy. This is fine as each 
 
 While doing this I was able to rework some of the tree. I pushed `Game.Config` further up the tree since that seems important. I also pushed more GenServers into the `Cache` sub-tree since they were similar.
 
-One of the other reasons I did this was to figure out how to split up the app on separate nodes. This excercise taught me that it's currently not as easy as I was hoping. I figure the `Web` tree could be pulled off without doing much of anything, yet I found out that the `Game` tree is connected in a few spots that prevent it from immediately being pulled off. This would have been an annoying lesson to learn as I did that, now I know before hand and can fix the problems I found first.
+One of the other reasons I did this was to figure out how to split up the app on separate nodes. This exercise taught me that it's currently not as easy as I was hoping. I figure the `Web` tree could be pulled off without doing much of anything, yet I found out that the `Game` tree is connected in a few spots that prevent it from immediately being pulled off. This would have been an annoying lesson to learn as I did that, now I know before hand and can fix the problems I found first.
 
 In going multi-node, each of the first level would be good as a separate OTP app in an umbrella app. I had previously started with that but the application was too new for that to be useful. If I split them up again, I can boot nodes that are just for web, just for telnet connections, or just the world. I think this is a next step for going multinode.
 
-I hope this was useful reading through seeing why I picked what I did and also finding out I had a few things ordered wrong. I hope you go through your own apps and try out a similar excercise on them.
+I hope this was useful reading through seeing why I picked what I did and also finding out I had a few things ordered wrong. I hope you go through your own apps and try out a similar exercise on them.
 
 [elixir-youtube]: https://www.youtube.com/watch?v=W0BR_tWZChQ
 [exventure-github]: https://github.com/oestrich/ex_venture
