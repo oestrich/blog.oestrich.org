@@ -124,3 +124,4 @@ You can see everything described here in these two pull requests, [#37](https://
 [zone-controller]: https://github.com/oestrich/ex_venture/blob/master/lib/game/world/zone_controller.ex
 [pg2]: http://erlang.org/doc/man/pg2.html
 [zone-rebalance]: https://github.com/oestrich/ex_venture/blob/11790b258509117965ab1f22fd24993c2f4f4767/lib/game/world/master.ex#L73-L91
+[swarm]: https://github.com/bitwalker/swarm
