@@ -6,7 +6,7 @@ categories:
 - ex_venture
 title: Elixir OTP Supervision Tether
 description: A supervision tree pattern for processes that may never recover
-date: 2018-07-10 9:30AM EST
+date: 2018-07-09 7:30PM EDT
 ---
 
 I got to try out a new OTP Supervision tree pattern in [ExVenture][exventure], that I am going to call a tether.
