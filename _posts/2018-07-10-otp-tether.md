@@ -39,10 +39,10 @@ Eventually the monitor process will try to restart the Gossip socket which may c
 
 The code for this was pretty simple, you can see it on GitHub in the [gossip folder][exventure_gossip].
 
-- [Gossip.Supervisor](https://github.com/oestrich/ex_venture/blob/master/lib/gossip/supervisor.ex)
-- [Gossip.Supervisor.Tether](https://github.com/oestrich/ex_venture/blob/master/lib/gossip/supervisor.ex)
-- [Gossip.Monitor](https://github.com/oestrich/ex_venture/blob/master/lib/gossip/monitor.ex)
-- [Gossip.Socket](https://github.com/oestrich/ex_venture/blob/master/lib/gossip/socket.ex)
+- [Gossip.Supervisor](https://github.com/oestrich/ex_venture/blob/dfe4394d285a853fff880391219161ed77f0eefc/lib/gossip/supervisor.ex)
+- [Gossip.Supervisor.Tether](https://github.com/oestrich/ex_venture/blob/dfe4394d285a853fff880391219161ed77f0eefc/lib/gossip/supervisor.ex)
+- [Gossip.Monitor](https://github.com/oestrich/ex_venture/blob/dfe4394d285a853fff880391219161ed77f0eefc/lib/gossip/monitor.ex)
+- [Gossip.Socket](https://github.com/oestrich/ex_venture/blob/dfe4394d285a853fff880391219161ed77f0eefc/lib/gossip/socket.ex)
 
 I learned of this at least part of this technique from Adam, over at the [MUD Coders Guild][mud-coders]. If you are interested in Elixir and multiplayer game programming, come check out the Slack and say Hi.
 
