@@ -16,7 +16,7 @@ Gossip is a cross game chat service for MUDs, [check it out][gossip].
 
 ## The Handler
 
-The full websocket handler is [here on GitHub]().
+The full websocket handler is [here on GitHub][websocket-github].
 
 ```elixir
 defmodule Web.SocketHandler do
