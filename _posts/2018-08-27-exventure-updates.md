@@ -112,6 +112,10 @@ This was a pretty big month for ExVenture and Gossip. The cowboy websockets blog
 
 If you're interested in joining the server to talk about ExVenture, [this is the Discord invite][discord].
 
+I also have stickers if anyone spots me at ElixirConf next week.
+
+![ExVenture and Gossip Stickers](/images/2018-08-exventure-stickers.jpg)
+
 ## Next Month
 
 With ElixirConf over after the first week of September, I might get back to bigger features. I would like to split characters apart from users, which is a huge refactor. But a refactor that has been waiting for a while. Some of this move was started with the tweaks that pushed ExVenture to 1200 players.
