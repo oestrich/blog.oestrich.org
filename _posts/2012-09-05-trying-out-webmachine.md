@@ -22,7 +22,7 @@ Any call to "/orders" will go to the OrdersResource, since you're acting on a co
 I also really liked the idea of callbacks on a resource. To point out one, in order to get a resource to respond to a certain method, you add it to the `#allowed_methods`:
 
 ```ruby
-class OrderResource 
+class OrderResource
   def allowed_methods
     ["GET", "POST"]
   end
@@ -66,7 +66,7 @@ class Order
   end
 
   def to_json(options = {})
-    %{{"email":"#@email", "date":"#@date", "id":#@id}}
+    "{\"email\":\"#{@email}\", \"date\":\"#{@date}\", \"id\":#{@id}"
   end
 
   def initialize(attrs = {})

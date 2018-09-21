@@ -9,8 +9,15 @@ title: Eric's Devblog
 description: Developer blog for Eric Oestrich
 url: http://blog.oestrich.org
 
+keep_files:
+  - images
+  - img
+
 exclude:
-- Gemfile
-- Gemfile.lock
-- build
-- vendor
+  - Gemfile
+  - Gemfile.lock
+  - build
+  - vendor
+
+plugins:
+  - jekyll-paginate
