@@ -5,7 +5,7 @@ category:
 - ex_venture
 title: ExVenture Updates for September 2018
 description: ExVenture changes in the month of September 2018
-date: 2018-09-25 9:30AM EDT
+date: 2018-09-25 9:00AM EDT
 ---
 
 The last month of [ExVenture][exventure-github] resulted in a lot bug fixes in preparation for [ElixirConf][elixirconf] with some web client features towards the end of the month.
