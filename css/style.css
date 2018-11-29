@@ -64,6 +64,19 @@ li {
   line-height: 20px;
 }
 
+.nav {
+  height: 20px;
+}
+
+.nav ul {
+  list-style: none;
+}
+
+.nav li {
+  float: left;
+  margin-right: 20px;
+}
+
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -95,14 +108,6 @@ li {
 
 .row:after {
   clear: both;
-}
-
-.span9 {
-  width: 700px;
-}
-
-.span3 {
-  width: 260px;
 }
 
 [class*="span"] {
@@ -235,21 +240,6 @@ img.float-img {
 .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
 
 @media only screen and (max-device-width : 480px) {
-  .span9 {
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-  }
-
-  .span3 {
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    width: 80%;
-  }
-
   .container {
     width: 100%;
   }
