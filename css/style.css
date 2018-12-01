@@ -70,6 +70,7 @@ li {
 
 .nav ul {
   list-style: none;
+  margin-left: 0;
 }
 
 .nav li {
