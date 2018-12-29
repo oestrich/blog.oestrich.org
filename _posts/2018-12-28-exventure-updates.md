@@ -75,7 +75,7 @@ I will be at Lonestar Elixir 2019 showing off adding prometheus metrics to your 
 
 ## Next Month
 
-For the next month, I'm working on some new game mechanics, the first of which is proficiencies. I am hoping to get back around to some of the other mechanics that are already in and expand them a bit, such as items.
+For the next month, I'm working on some new game mechanics, the first of which is proficiencies. I am hoping to get back around to some of the other mechanics that are already in and expand them a bit, such as items. I would like to start moving on achievements for Gossip as well.
 
 [exventure]: https://exventure.org
 [exventure-world]: https://exventure.world
