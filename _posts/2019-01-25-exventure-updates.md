@@ -23,7 +23,7 @@ Links for MidMUD & ExVenture:
 
 ## Gossip
 
-Gossip got a few nice improvements. I added the ability to scrape telnet based games that aren't hooked up to the chat netowrk. There is a protocol called MUD Server Stats Protocol (MSSP) that probes telnet connections for game information. Gossip now sweeps every hour for compatible games, adding to the list of online games.
+Gossip got a few nice improvements. I added the ability to scrape telnet based games that aren't hooked up to the chat network. There is a protocol called MUD Server Stats Protocol (MSSP) that probes telnet connections for game information. Gossip now sweeps every hour for compatible games, adding to the list of online games.
 
 Achievements are also on the move. You can add achievements to your game and have them display. I haven't been working on unlocking them yet, but the core is there. I was delayed on unlocking them because of the weird split in Grapevine and Gossip.
 
