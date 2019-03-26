@@ -24,15 +24,15 @@ This worked well until I went to deploy. I was never able to successfully deploy
 
 I tried a few ways of getting around this but couldn't figure out what was wrong. I scratched my head for an evening before letting it sit overnight.
 
-### Starting EPMD Separately
+### Starting epmd Separately
 
-What I think was the issue, was that EPMD was being started automatically by the first node to boot. The way I was deploying was simply overwriting the entire release directory with the new code. I _think_ this screwed something up, I'm not 100% sure about this though.
+What I think was the issue, was that epmd was being started automatically by the first node to boot. The way I was deploying was simply overwriting the entire release directory with the new code. I _think_ this screwed something up, I'm not 100% sure about this though.
 
-By starting EPMD as a separate service, the issues stopped. I set up my service files to require EPMD before starting. In a sense I pushed the issue up the supervision tree!
+By starting epmd as a separate service, the issues stopped. I set up my service files to require epmd before starting. In a sense I pushed the issue up the supervision tree!
 
 ### Service Files
 
-This is the EPMD service that Grapevine uses. Ansible places the EPMD daemon at `/home/deploy/epmd` (in [this file](https://github.com/oestrich/grapevine/blob/master/deploy/roles/setup/tasks/epmd.yml).)
+This is the epmd service that Grapevine uses. Ansible places the epmd daemon at `/home/deploy/epmd` (in [this file](https://github.com/oestrich/grapevine/blob/master/deploy/roles/setup/tasks/epmd.yml).)
 
 ```
 [Unit]
@@ -63,7 +63,7 @@ WantedBy=epmd.service
 
 ### Conclusion
 
-If you have a local cluser, you should avoid node connection issues by starting EPMD separately and not allowing for the automatic daemon start. As an extra bonus, you can now use the `epmd` binary to communicate easily with the running daemon. This lets you know each node is alive and connected, use `epmd -names` for this.
+If you have a local cluser, you should avoid node connection issues by starting epmd separately and not allowing for the automatic daemon start. As an extra bonus, you can now use the `epmd` binary to communicate easily with the running daemon. This lets you know each node is alive and connected, use `epmd -names` for this.
 
 Finally, all of this code is open source so you can inspect what Grapevine does for clustering. See the [main repo here](https://github.com/oestrich/grapevine) and [the telnet node repo here](https://github.com/oestrich/grapevine-telnet).
 
