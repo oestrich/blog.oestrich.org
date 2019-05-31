@@ -5,7 +5,7 @@ category:
 - grapevine
 title: Grapevine Updates for May 2019
 description: Grapevine changes in the month of May 2019
-date: 2019-04-30 8:00 AM EDT
+date: 2019-05-31 8:00 AM EDT
 ---
 
 The last month of [ExVenture][exventure-github] and [Grapevine][grapevine] continued the pace of last month, mostly continuing work on the web client and test server.
