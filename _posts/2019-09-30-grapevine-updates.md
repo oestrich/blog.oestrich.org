@@ -5,7 +5,7 @@ category:
 - grapevine
 title: Grapevine Updates for September 2019
 description: Grapevine changes from September 2019
-date: 2019-09-30 10:00 PM EDT
+date: 2019-09-30 06:00 PM EDT
 ---
 
 The last month of [Grapevine][grapevine] has picked up pace, I've been working through a lot of little things here and there to get back into the development groove.
