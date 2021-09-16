@@ -31,7 +31,7 @@ Aino is built around a handler. The handler receives a token for the request and
 
 Aino ships with a handful of common middleware, including parsing request POST body of a few MIME types (url encoded and JSON at the moment), header parsing, a tiny view wrapper around EEx, a _very_ simple router, and simple session stored in cookies.
 
-The `Aino.Token` is taken from René Föhring's excellent [blost post](http://rrrene.org/2018/04/30/flow-elixir-token-approach-pros-and-cons/) and [ElixirConf 2018 talk](https://www.youtube.com/watch?v=ycpNi701aCs). I went with a simple map instead of a struct because this enables anyone to add any key in middleware without needing to extend a token struct. Using a simple map was also fits more in line with what [Ring][ring] uses for passing data between middleware.
+The `Aino.Token` is taken from René Föhring's excellent [blog post](http://rrrene.org/2018/04/30/flow-elixir-token-approach-pros-and-cons/) and [ElixirConf 2018 talk](https://www.youtube.com/watch?v=ycpNi701aCs). I went with a simple map instead of a struct because this enables anyone to add any key in middleware without needing to extend a token struct. Using a simple map was also fits more in line with what [Ring][ring] uses for passing data between middleware.
 
 ## Example
 
